@@ -1,0 +1,282 @@
+{
+  "timestamp": "2026-09-25T14:34:56.290Z",
+  "sourceRoot": "C:\\Git",
+  "projectsScanned": [
+    "Applic",
+    "CantinaApp",
+    "CarWarmWeb",
+    "DocOnceWeb",
+    "DynamicMIS",
+    "FamilyTracker",
+    "InspectionSystem",
+    "IoT-lat-lon-processor",
+    "KidsTracker",
+    "LiteDisc",
+    "LiteMail",
+    "PdvEventos",
+    "PRL",
+    "Rental",
+    "ReportScheduler",
+    "TournamentEngine",
+    "YouTubeVideoCutter"
+  ],
+  "categoriesCreated": [
+    "Rastreamento & Telemetria IoT",
+    "Gestão & Operações Comerciais",
+    "Dados & Produtividade",
+    "Mídia & Torneios",
+    "Saúde & Utilitários"
+  ],
+  "pagesCreated": [
+    "projects/applic/index.html",
+    "projects/applic/privacy/index.html",
+    "projects/cantinaapp/index.html",
+    "projects/cantinaapp/privacy/index.html",
+    "projects/carwarmweb/index.html",
+    "projects/carwarmweb/privacy/index.html",
+    "projects/doconceweb/index.html",
+    "projects/doconceweb/privacy/index.html",
+    "projects/dynamicmis/index.html",
+    "projects/dynamicmis/privacy/index.html",
+    "projects/familytracker/index.html",
+    "projects/familytracker/privacy/index.html",
+    "projects/inspectionsystem/index.html",
+    "projects/inspectionsystem/privacy/index.html",
+    "projects/iot-lat-lon-processor/index.html",
+    "projects/iot-lat-lon-processor/privacy/index.html",
+    "projects/kidstracker/index.html",
+    "projects/kidstracker/privacy/index.html",
+    "projects/litedisc/index.html",
+    "projects/litedisc/privacy/index.html",
+    "projects/litemail/index.html",
+    "projects/litemail/privacy/index.html",
+    "projects/pdveventos/index.html",
+    "projects/pdveventos/privacy/index.html",
+    "projects/prl/index.html",
+    "projects/prl/privacy/index.html",
+    "projects/rental/index.html",
+    "projects/rental/privacy/index.html",
+    "projects/reportscheduler/index.html",
+    "projects/reportscheduler/privacy/index.html",
+    "projects/tournamentengine/index.html",
+    "projects/tournamentengine/privacy/index.html",
+    "projects/youtubevideocutter/index.html",
+    "projects/youtubevideocutter/privacy/index.html"
+  ],
+  "warnings": [],
+  "missingInformation": [
+    {
+      "project": "Applic — Aplicação Subcutânea",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "Applic — Aplicação Subcutânea",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "Applic — Aplicação Subcutânea",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "CantinaApp",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "CantinaApp",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "CantinaApp",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "CarWarmWeb (AvisoPlaca)",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "CarWarmWeb (AvisoPlaca)",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "CarWarmWeb (AvisoPlaca)",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "DocOnceWeb",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "DocOnceWeb",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "DocOnceWeb",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "DynamicMIS — Informações Gerenciais Dinâmicas",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "DynamicMIS — Informações Gerenciais Dinâmicas",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "DynamicMIS — Informações Gerenciais Dinâmicas",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "FamilyTracker",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "FamilyTracker",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "FamilyTracker",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "InspectionSystem — Gestão de Ativos e Inspeções",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "InspectionSystem — Gestão de Ativos e Inspeções",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "InspectionSystem — Gestão de Ativos e Inspeções",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "IoT Lat/Lon Processor",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "IoT Lat/Lon Processor",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "IoT Lat/Lon Processor",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "KidsTracker — Rastreamento de Transporte Escolar",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "KidsTracker — Rastreamento de Transporte Escolar",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "KidsTracker — Rastreamento de Transporte Escolar",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "LiteDisc",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "LiteDisc",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "LiteDisc",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "LiteMail — Webmail Multi-Domínio",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "LiteMail — Webmail Multi-Domínio",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "LiteMail — Webmail Multi-Domínio",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "PdvEventos — Frente de Caixa para Eventos",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "PdvEventos — Frente de Caixa para Eventos",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "PdvEventos — Frente de Caixa para Eventos",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "PRL — Logística e Rastreamento de Frotas",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "PRL — Logística e Rastreamento de Frotas",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "PRL — Logística e Rastreamento de Frotas",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "Rental — Gestão de Locação de Equipamentos",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "Rental — Gestão de Locação de Equipamentos",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "Rental — Gestão de Locação de Equipamentos",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "ReportScheduler",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "ReportScheduler",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "ReportScheduler",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "TournamentEngine",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "TournamentEngine",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "TournamentEngine",
+      "field": "URL do Repositório Git"
+    },
+    {
+      "project": "YouTubeVideoCutter",
+      "field": "URL de Produção"
+    },
+    {
+      "project": "YouTubeVideoCutter",
+      "field": "URL de Homologação"
+    },
+    {
+      "project": "YouTubeVideoCutter",
+      "field": "URL do Repositório Git"
+    }
+  ],
+  "skippedSensitiveFiles": [
+    {
+      "project": "LiteMail",
+      "files": [
+        ".env.railway.example"
+      ]
+    }
+  ],
+  "unresolvedLinks": []
+}

@@ -1,0 +1,37 @@
+{
+  "id": "doconceweb",
+  "title": "DocOnceWeb",
+  "slug": "doconceweb",
+  "categoryId": "produtividade-dados",
+  "summary": "Plataforma para geração e automação de documentos corporativos .docx a partir de modelos.",
+  "description": "Sistema web centralizado em ASP.NET Core MVC para parametrização de modelos de contrato e relatórios, permitindo a substituição de tags dinâmicas e exportação de arquivos Word utilizando a biblioteca DocX.",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/doconceweb/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    "C#",
+    "ASP.NET Core MVC",
+    "DocX Library",
+    "Entity Framework Core",
+    "SQLite"
+  ],
+  "screenshots": [],
+  "features": [
+    "Criação e edição de templates documentais com marcadores dinâmicos",
+    "Motor de preenchimento automático em lote gerando arquivos .docx",
+    "Histórico de documentos gerados por operador com download direto",
+    "Controle de versionamento de minutas padrão"
+  ],
+  "architecture": "Arquitetura ASP.NET Core MVC clássica com serviços dedicados de renderização documental e persistência de dados em SQLite.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

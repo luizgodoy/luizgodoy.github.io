@@ -1,0 +1,41 @@
+{
+  "id": "reportscheduler",
+  "title": "ReportScheduler",
+  "slug": "reportscheduler",
+  "categoryId": "produtividade-dados",
+  "summary": "Agendador de consultas SQL multi-banco com exportação automática de relatórios em Excel.",
+  "description": "Aplicação web em .NET 10 / ASP.NET Core MVC para cadastrar conexões com múltiplos bancos corporativos, programar consultas SQL parametrizadas e disponibilizar relatórios automáticos compactados em .zip.",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/reportscheduler/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    ".NET 10",
+    "C#",
+    "ASP.NET Core MVC",
+    "Oracle",
+    "SQL Server",
+    "PostgreSQL",
+    "MySQL",
+    "SQLite",
+    "EPPlus"
+  ],
+  "screenshots": [],
+  "features": [
+    "Suporte nativo a conexões com Oracle, SQL Server, PostgreSQL, MySQL e SQLite com teste de conectividade",
+    "Editor de consultas SQL parametrizadas com histórico de filtros aplicados",
+    "Agendamento cron/periódico de execuções automáticas sem intervenção humana",
+    "Geração e compactação de planilhas Excel em arquivos .zip com log de execução auditável"
+  ],
+  "architecture": "Aplicação ASP.NET Core MVC com engine de execução de background tasks e drivers de banco de dados heterogêneos.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

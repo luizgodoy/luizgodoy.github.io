@@ -1,0 +1,37 @@
+{
+  "id": "dynamicmis",
+  "title": "DynamicMIS — Informações Gerenciais Dinâmicas",
+  "slug": "dynamicmis",
+  "categoryId": "produtividade-dados",
+  "summary": "Plataforma flexível de Business Intelligence e gestão de informações gerenciais em .NET 8.",
+  "description": "Sistema corporativo multi-empresa que possibilita aos gestores cadastrar entidades e atributos de dados de forma dinâmica e em tempo de execução, eliminando a dependência de código novo para novas coleções de indicadores.",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/dynamicmis/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    ".NET 8",
+    "C#",
+    "ASP.NET Core MVC",
+    "Entity Framework Core",
+    "SQLite"
+  ],
+  "screenshots": [],
+  "features": [
+    "Estrutura multi-tenant com isolamento lógico estrito de dados por empresa",
+    "Definição de entidades e atributos customizados dinamicamente pelo painel",
+    "Dashboards com gráficos analíticos e métricas gerenciais em tempo real",
+    "Exportação de tabelas dinâmicas para análise externa"
+  ],
+  "architecture": "Padrão MVC com metamodelo relacional para propriedades dinâmicas e EF Core para gerenciamento de esquema.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sobre",
+    "title": "Sobre o Portfolio Wiki",
+    "slug": "sobre",
+    "summary": "Catálogo oficial de sistemas, ferramentas e produtos digitais.",
+    "content": "\n          <p>O <strong>Portfolio Wiki</strong> é a plataforma centralizada de documentação técnica, arquitetura de sistemas e governança de dados corporativos.</p>\n          <p>Seu objetivo primordial é catalogar aplicações, microsserviços, componentes de infraestrutura e projetos desenvolvidos pela equipe de engenharia, oferecendo transparência técnica, inventário de dependências e conformidade com a LGPD (Lei Geral de Proteção de Dados Pessoais).</p>\n          <h3>Governança e Arquitetura</h3>\n          <p>Todo o catálogo é fundamentado em uma arquitetura orientada a arquivos físicos estáticos, garantindo portabilidade, alta performance, resiliência e ausência de dependência de servidores de aplicação complexos para a navegação pública.</p>\n        ",
+    "alignment": "left",
+    "published": true,
+    "showInNav": true,
+    "showInFooter": true,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "politica-geral-privacidade",
+    "title": "Política Geral de Proteção de Dados (LGPD)",
+    "slug": "politica-geral-privacidade",
+    "summary": "Diretrizes gerais de privacidade e proteção de dados pessoais aplicáveis ao catálogo de produtos.",
+    "content": "\n          <p>Esta Política Geral de Privacidade estabelece as diretrizes de governança de dados pessoais observadas no desenvolvimento e manutenção do catálogo de produtos e sistemas.</p>\n          <h3>Compromisso com a Privacidade</h3>\n          <p>A organização adota os princípios da privacidade por padrão e desde a concepção (<em>Privacy by Design and by Default</em>), garantindo que cada projeto catalogado possua sua respectiva análise de impacto à privacidade e ficha de adequação técnica à Lei Federal nº 13.709/2018.</p>\n          <h3>Segurança da Informação</h3>\n          <p>Nenhuma credencial, segredo ou dado confidencial é exposto nas fichas públicas dos sistemas. O acesso administrativo é protegido por criptografia autenticada e mecanismos avançados de controle de sessão.</p>\n        ",
+    "alignment": "left",
+    "published": true,
+    "showInNav": false,
+    "showInFooter": true,
+    "updatedAt": "2026-09-25"
+  }
+]

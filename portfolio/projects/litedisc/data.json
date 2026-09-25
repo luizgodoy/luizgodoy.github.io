@@ -1,0 +1,36 @@
+{
+  "id": "litedisc",
+  "title": "LiteDisc",
+  "slug": "litedisc",
+  "categoryId": "produtividade-dados",
+  "summary": "Plataforma de armazenamento em nuvem e gerenciamento seguro de arquivos multi-backend.",
+  "description": "Serviço web construído em ASP.NET Core 8 MVC para upload, download, pré-visualização e organização de pastas de arquivos isolados rigorosamente por usuário.",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/litedisc/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    "C#",
+    "ASP.NET Core 8 MVC",
+    "SQLite",
+    "Entity Framework Core"
+  ],
+  "screenshots": [],
+  "features": [
+    "Gerenciador de arquivos completo com navegação hierárquica e breadcrumbs",
+    "Suporte a uploads de grandes arquivos (até 500 MB) em lote",
+    "Controle de acesso rigoroso por conta com isolamento físico de diretórios",
+    "Busca rápida por nome de arquivo e extensão"
+  ],
+  "architecture": "Arquitetura ASP.NET Core MVC com abstração de provedor de armazenamento (Local Disk / Cloud Storage) e metadados no SQLite.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "pdveventos",
+  "title": "PdvEventos — Frente de Caixa para Eventos",
+  "slug": "pdveventos",
+  "categoryId": "gestao-operacional",
+  "summary": "Sistema de Frente de Caixa (POS) de alto desempenho com interface moderna para feiras e eventos.",
+  "description": "Plataforma focada em velocidade de atendimento em balcões de eventos temporários, festas e feiras, combinando design moderno Glassmorphism com operação tolerante a instabilidade de rede.",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/pdveventos/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    "C#",
+    "ASP.NET Core",
+    "Entity Framework Core",
+    "SQLite",
+    "HTML5 / Modern CSS"
+  ],
+  "screenshots": [],
+  "features": [
+    "Interface rápida e intuitiva no padrão Glassmorphism pensada para telas touch e operadores rápidos",
+    "Emissão e controle de fichas de produtos e consumações com QR code / código de barras",
+    "Fechamento de caixa por operador com conferência detalhada por forma de pagamento",
+    "Relatórios consolidados de vendas por hora e produtos mais comercializados"
+  ],
+  "architecture": "Aplicação web local de alta performance com banco embutido SQLite para garantir que o caixa opere sem interrupções mesmo sem internet.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

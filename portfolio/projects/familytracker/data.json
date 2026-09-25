@@ -1,0 +1,39 @@
+{
+  "id": "familytracker",
+  "title": "FamilyTracker",
+  "slug": "familytracker",
+  "categoryId": "rastreamento-iot",
+  "summary": "Ecossistema de rastreamento familiar em tempo real com app Android, dashboard web e simulador de telemetria.",
+  "description": "Solução integrada composta por aplicativo móvel em Kotlin/Compose (.NET MAUI), backend ASP.NET Core com mapa interativo para monitoramento de rotas e simulador de telemetria para validação de carga.",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/familytracker/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    "ASP.NET Core",
+    "Kotlin / Jetpack Compose",
+    ".NET MAUI",
+    "SignalR",
+    "Leaflet",
+    "OSRM Route API",
+    "C#"
+  ],
+  "screenshots": [],
+  "features": [
+    "Transmissão de telemetria GPS em segundo plano com tratamento de perda de sinal",
+    "Visualização de rotas em tempo real sobre mapas vetoriais via SignalR",
+    "Integração com API OSRM para map-matching e cálculo de trajetos viários",
+    "Simulador de dispositivos para testes de estresse de ingestão"
+  ],
+  "architecture": "Arquitetura distribuída com app transmissor via HTTP/REST, ingestão assíncrona, broadcast via WebSockets e dashboard web responsivo.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

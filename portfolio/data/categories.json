@@ -1,0 +1,50 @@
+[
+  {
+    "id": "rastreamento-iot",
+    "name": "Rastreamento & Telemetria IoT",
+    "slug": "rastreamento-iot",
+    "description": "Sistemas de rastreamento veicular, escolar, familiar e processamento geoespacial em lote.",
+    "displayOrder": 0,
+    "published": true
+  },
+  {
+    "id": "gestao-operacional",
+    "name": "Gestão & Operações Comerciais",
+    "slug": "gestao-operacional",
+    "description": "Plataformas de ponto de venda, gestão de cantinas escolares, locação de equipamentos e inspeção de ativos.",
+    "displayOrder": 0,
+    "published": true
+  },
+  {
+    "id": "produtividade-dados",
+    "name": "Dados & Produtividade",
+    "slug": "produtividade-dados",
+    "description": "Ferramentas de BI dinâmico, geração de relatórios SQL agendados, automação documental e armazenamento em nuvem.",
+    "displayOrder": 0,
+    "published": true
+  },
+  {
+    "id": "multimidia-jogos",
+    "name": "Mídia & Torneios",
+    "slug": "multimidia-jogos",
+    "description": "Motores para chaveamento de campeonatos esportivos e ferramentas locais para processamento de vídeo e áudio.",
+    "displayOrder": 0,
+    "published": true
+  },
+  {
+    "id": "saude-utilitarios",
+    "name": "Saúde & Utilitários",
+    "slug": "saude-utilitarios",
+    "description": "Aplicações móveis para monitoramento de rotinas de saúde e utilitários de consulta veicular.",
+    "displayOrder": 0,
+    "published": true
+  },
+  {
+    "id": "outros",
+    "name": "Outros Projetos",
+    "slug": "outros",
+    "description": "Projetos e utilitários diversos catalogados para revisão.",
+    "displayOrder": 0,
+    "published": true
+  }
+]

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início - Portfolio &amp; Wiki de Produtos</title>
+  <meta name="description" content="Catálogo de sistemas, microsserviços e ferramentas de software com documentação técnica e LGPD.">
+  
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Início - Portfolio &amp; Wiki de Produtos">
+  <meta property="og:description" content="Catálogo de sistemas, microsserviços e ferramentas de software com documentação técnica e LGPD.">
+  <meta name="theme-color" content="#2563eb">
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="./index.html" class="brand" aria-label="Página inicial do Portfolio">
+        <span>Portfolio Wiki</span>
+        <span class="brand-badge">Sistemas</span>
+      </a>
+
+      <nav aria-label="Menu principal">
+        <ul class="nav-links">
+          <li><a href="./index.html" class="nav-link active">Projetos</a></li>
+          <li><a href="./categories/index.html" class="nav-link ">Categorias</a></li>
+          <li><a href="./pages/sobre/index.html" class="nav-link ">Sobre</a></li>
+          <li><a href="./admin/index.html" class="nav-link" target="_blank" rel="noopener">Admin</a></li>
+          <li>
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar tema visual" aria-pressed="false">
+              🌙 Escuro
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  
+
+  <main id="main-content" class="site-main">
+    
+    <div class="hero">
+      <h1>Portfolio & Wiki de Produtos</h1>
+      <p>Catálogo técnico unificado de produtos de software, microsserviços, bibliotecas e sistemas corporativos.</p>
+      
+      <div class="search-wrapper">
+        <label for="project-search" class="visually-hidden" style="display:none;">Buscar projetos e tecnologias</label>
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input 
+          type="search" 
+          id="project-search" 
+          class="search-input" 
+          placeholder="Filtrar por nome do sistema, categoria ou tecnologia (ex: C#, Node, React)..." 
+          aria-label="Buscar projetos catalogados"
+        >
+      </div>
+    </div>
+
+    <section aria-labelledby="heading-categories" style="margin-bottom: 3.5rem;">
+      <div class="section-title">
+        <h2 id="heading-categories">Categorias</h2>
+        <a href="./categories/index.html" class="btn btn-secondary btn-sm">Todas as Categorias &rarr;</a>
+      </div>
+      <div class="card-grid">
+        
+      <a href="./categories/rastreamento-iot/index.html" class="category-card">
+        <h3>Rastreamento &amp; Telemetria IoT</h3>
+        <p>Sistemas de rastreamento veicular, escolar, familiar e processamento geoespacial em lote.</p>
+        <span class="category-count">4 projetos &rarr;</span>
+      </a>
+    
+      <a href="./categories/gestao-operacional/index.html" class="category-card">
+        <h3>Gestão &amp; Operações Comerciais</h3>
+        <p>Plataformas de ponto de venda, gestão de cantinas escolares, locação de equipamentos e inspeção de ativos.</p>
+        <span class="category-count">4 projetos &rarr;</span>
+      </a>
+    
+      <a href="./categories/produtividade-dados/index.html" class="category-card">
+        <h3>Dados &amp; Produtividade</h3>
+        <p>Ferramentas de BI dinâmico, geração de relatórios SQL agendados, automação documental e armazenamento em nuvem.</p>
+        <span class="category-count">5 projetos &rarr;</span>
+      </a>
+    
+      <a href="./categories/multimidia-jogos/index.html" class="category-card">
+        <h3>Mídia &amp; Torneios</h3>
+        <p>Motores para chaveamento de campeonatos esportivos e ferramentas locais para processamento de vídeo e áudio.</p>
+        <span class="category-count">2 projetos &rarr;</span>
+      </a>
+    
+      <a href="./categories/saude-utilitarios/index.html" class="category-card">
+        <h3>Saúde &amp; Utilitários</h3>
+        <p>Aplicações móveis para monitoramento de rotinas de saúde e utilitários de consulta veicular.</p>
+        <span class="category-count">2 projetos &rarr;</span>
+      </a>
+    
+      <a href="./categories/outros/index.html" class="category-card">
+        <h3>Outros Projetos</h3>
+        <p>Projetos e utilitários diversos catalogados para revisão.</p>
+        <span class="category-count">0 projetos &rarr;</span>
+      </a>
+    
+      </div>
+    </section>
+
+    <section aria-labelledby="heading-projects">
+      <div class="section-title">
+        <h2 id="heading-projects">Projetos Catalogados</h2>
+        <span class="badge badge-category">17 projetos</span>
+      </div>
+      <div class="card-grid" id="projects-grid">
+        
+    <article class="project-card" data-search="Applic — Aplicação Subcutânea Saúde &amp; Utilitários .NET MAUI C# SQLite XAML Android MVVM">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/applic/index.html">Applic — Aplicação Subcutânea</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Saúde &amp; Utilitários</span>
+        <span class="badge badge-status">Concluído</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Aplicativo Android offline em .NET MAUI para registro e organização de aplicações subcutâneas pessoais.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">.NET MAUI</span><span class="tech-tag">C#</span><span class="tech-tag">SQLite</span><span class="tech-tag">XAML</span><span class="tech-tag">Android</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/applic/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/applic/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="CantinaApp Gestão &amp; Operações Comerciais C# ASP.NET Core MVC Entity Framework Core Docker SQLite Bootstrap">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/cantinaapp/index.html">CantinaApp</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Gestão &amp; Operações Comerciais</span>
+        <span class="badge badge-status">Em Produção</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Sistema completo de gestão para cantinas escolares em ASP.NET Core MVC.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core MVC</span><span class="tech-tag">Entity Framework Core</span><span class="tech-tag">Docker</span><span class="tech-tag">SQLite</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/cantinaapp/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/cantinaapp/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="CarWarmWeb (AvisoPlaca) Saúde &amp; Utilitários C# ASP.NET Core 8 Razor Pages Entity Framework Core SQLite BrasilAPI SHA-256">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/carwarmweb/index.html">CarWarmWeb (AvisoPlaca)</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Saúde &amp; Utilitários</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Serviço web para consulta de placas veiculares e envio de notificações de não-conformidade a proprietários.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core 8 Razor Pages</span><span class="tech-tag">Entity Framework Core</span><span class="tech-tag">SQLite</span><span class="tech-tag">BrasilAPI</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/carwarmweb/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/carwarmweb/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="DocOnceWeb Dados &amp; Produtividade C# ASP.NET Core MVC DocX Library Entity Framework Core SQLite">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/doconceweb/index.html">DocOnceWeb</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Dados &amp; Produtividade</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Plataforma para geração e automação de documentos corporativos .docx a partir de modelos.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core MVC</span><span class="tech-tag">DocX Library</span><span class="tech-tag">Entity Framework Core</span><span class="tech-tag">SQLite</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/doconceweb/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/doconceweb/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="DynamicMIS — Informações Gerenciais Dinâmicas Dados &amp; Produtividade .NET 8 C# ASP.NET Core MVC Entity Framework Core SQLite">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/dynamicmis/index.html">DynamicMIS — Informações Gerenciais Dinâmicas</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Dados &amp; Produtividade</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Plataforma flexível de Business Intelligence e gestão de informações gerenciais em .NET 8.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">.NET 8</span><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core MVC</span><span class="tech-tag">Entity Framework Core</span><span class="tech-tag">SQLite</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/dynamicmis/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/dynamicmis/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="FamilyTracker Rastreamento &amp; Telemetria IoT ASP.NET Core Kotlin / Jetpack Compose .NET MAUI SignalR Leaflet OSRM Route API C#">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/familytracker/index.html">FamilyTracker</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Rastreamento &amp; Telemetria IoT</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Ecossistema de rastreamento familiar em tempo real com app Android, dashboard web e simulador de telemetria.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">ASP.NET Core</span><span class="tech-tag">Kotlin / Jetpack Compose</span><span class="tech-tag">.NET MAUI</span><span class="tech-tag">SignalR</span><span class="tech-tag">Leaflet</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/familytracker/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/familytracker/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="InspectionSystem — Gestão de Ativos e Inspeções Gestão &amp; Operações Comerciais C# ASP.NET Core 8 MVC Entity Framework Core SQLite Bootstrap">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/inspectionsystem/index.html">InspectionSystem — Gestão de Ativos e Inspeções</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Gestão &amp; Operações Comerciais</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Plataforma para inspeção de equipamentos, controle de conformidade e ordens de manutenção.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core 8 MVC</span><span class="tech-tag">Entity Framework Core</span><span class="tech-tag">SQLite</span><span class="tech-tag">Bootstrap</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/inspectionsystem/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/inspectionsystem/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="IoT Lat/Lon Processor Rastreamento &amp; Telemetria IoT .NET C# Geocoding APIs EPPlus Parallel Tasks">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/iot-lat-lon-processor/index.html">IoT Lat/Lon Processor</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Rastreamento &amp; Telemetria IoT</span>
+        <span class="badge badge-status">Concluído</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Processador desktop de alto desempenho para enriquecimento geográfico em lote de coordenadas IoT.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">.NET</span><span class="tech-tag">C#</span><span class="tech-tag">Geocoding APIs</span><span class="tech-tag">EPPlus</span><span class="tech-tag">Parallel Tasks</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/iot-lat-lon-processor/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/iot-lat-lon-processor/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="KidsTracker — Rastreamento de Transporte Escolar Rastreamento &amp; Telemetria IoT .NET 10 .NET MAUI Android ASP.NET Core MVC Web API SignalR SQLite PostgreSQL">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/kidstracker/index.html">KidsTracker — Rastreamento de Transporte Escolar</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Rastreamento &amp; Telemetria IoT</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Plataforma especializada em monitoramento em tempo real de frotas e vans de transporte escolar.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">.NET 10</span><span class="tech-tag">.NET MAUI Android</span><span class="tech-tag">ASP.NET Core MVC</span><span class="tech-tag">Web API</span><span class="tech-tag">SignalR</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/kidstracker/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/kidstracker/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="LiteDisc Dados &amp; Produtividade C# ASP.NET Core 8 MVC SQLite Entity Framework Core">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/litedisc/index.html">LiteDisc</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Dados &amp; Produtividade</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Plataforma de armazenamento em nuvem e gerenciamento seguro de arquivos multi-backend.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core 8 MVC</span><span class="tech-tag">SQLite</span><span class="tech-tag">Entity Framework Core</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/litedisc/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/litedisc/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="LiteMail — Webmail Multi-Domínio Dados &amp; Produtividade C# ASP.NET Core 8 MVC MailKit MimeKit Docker Mailcow">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/litemail/index.html">LiteMail — Webmail Multi-Domínio</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Dados &amp; Produtividade</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Cliente webmail corporativo multi-domínio em ASP.NET Core e MailKit.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core 8 MVC</span><span class="tech-tag">MailKit</span><span class="tech-tag">MimeKit</span><span class="tech-tag">Docker</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/litemail/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/litemail/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="PdvEventos — Frente de Caixa para Eventos Gestão &amp; Operações Comerciais C# ASP.NET Core Entity Framework Core SQLite HTML5 / Modern CSS">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/pdveventos/index.html">PdvEventos — Frente de Caixa para Eventos</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Gestão &amp; Operações Comerciais</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Sistema de Frente de Caixa (POS) de alto desempenho com interface moderna para feiras e eventos.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core</span><span class="tech-tag">Entity Framework Core</span><span class="tech-tag">SQLite</span><span class="tech-tag">HTML5 / Modern CSS</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/pdveventos/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/pdveventos/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="PRL — Logística e Rastreamento de Frotas Rastreamento &amp; Telemetria IoT C# ASP.NET Core Web API .NET PostgreSQL PostGIS Docker Compose WhatsApp API">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/prl/index.html">PRL — Logística e Rastreamento de Frotas</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Rastreamento &amp; Telemetria IoT</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Sistema corporativo de rastreamento veicular, cercas eletrônicas e telemetria logística com PostGIS.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core Web API</span><span class="tech-tag">.NET</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">PostGIS</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/prl/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/prl/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="Rental — Gestão de Locação de Equipamentos Gestão &amp; Operações Comerciais .NET 10 C# Clean Architecture ASP.NET Core MVC Web API EF Core SQLite xUnit">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/rental/index.html">Rental — Gestão de Locação de Equipamentos</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Gestão &amp; Operações Comerciais</span>
+        <span class="badge badge-status">Em Produção</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Sistema web completo em .NET 10 e Clean Architecture para controle de locações e contratos.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">.NET 10</span><span class="tech-tag">C#</span><span class="tech-tag">Clean Architecture</span><span class="tech-tag">ASP.NET Core MVC</span><span class="tech-tag">Web API</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/rental/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/rental/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="ReportScheduler Dados &amp; Produtividade .NET 10 C# ASP.NET Core MVC Oracle SQL Server PostgreSQL MySQL SQLite EPPlus">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/reportscheduler/index.html">ReportScheduler</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Dados &amp; Produtividade</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Agendador de consultas SQL multi-banco com exportação automática de relatórios em Excel.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">.NET 10</span><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core MVC</span><span class="tech-tag">Oracle</span><span class="tech-tag">SQL Server</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/reportscheduler/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/reportscheduler/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="TournamentEngine Mídia &amp; Torneios .NET C# Clean Architecture PWA (Progressive Web App) xUnit Domain-Driven Design">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/tournamentengine/index.html">TournamentEngine</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Mídia &amp; Torneios</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Motor de chaveamento de torneios esportivos, campeonatos de mata-mata e rankings de atletas.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">.NET</span><span class="tech-tag">C#</span><span class="tech-tag">Clean Architecture</span><span class="tech-tag">PWA (Progressive Web App)</span><span class="tech-tag">xUnit</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/tournamentengine/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/tournamentengine/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="YouTubeVideoCutter Mídia &amp; Torneios .NET 8 C# ASP.NET Core Blazor Server FFmpeg Local Cache System">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="./projects/youtubevideocutter/index.html">YouTubeVideoCutter</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Mídia &amp; Torneios</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Aplicativo local em Blazor Server e FFmpeg para download, corte e edição de mídia do YouTube.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">.NET 8</span><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core Blazor Server</span><span class="tech-tag">FFmpeg</span><span class="tech-tag">Local Cache System</span></div>
+      <div class="project-card-footer">
+        <a href="./projects/youtubevideocutter/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="./projects/youtubevideocutter/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+      </div>
+      <div id="no-search-results" class="notice notice-warning" style="display: none; text-align: center;">
+        Nenhum projeto encontrado para o termo pesquisado.
+      </div>
+    </section>
+  
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <strong>Portfolio & Wiki de Produtos</strong>
+          <p>Documentação arquitetural, técnica e de conformidade LGPD de sistemas corporativos.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="./index.html">Projetos</a></li>
+          <li><a href="./categories/index.html">Categorias</a></li>
+          <li><a href="./pages/sobre/index.html">Sobre</a></li>
+          <li><a href="./pages/politica-geral-privacidade/index.html">LGPD & Privacidade</a></li>
+          <li><a href="./admin/index.html">Acesso Administrativo</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Portfolio Wiki. Todos os direitos reservados.</p>
+        <p>Documentação gerada estaticamente a partir de repositórios auditados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main.js"></script>
+  
+</body>
+</html>

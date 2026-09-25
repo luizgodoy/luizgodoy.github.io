@@ -1,0 +1,39 @@
+{
+  "id": "prl",
+  "title": "PRL — Logística e Rastreamento de Frotas",
+  "slug": "prl",
+  "categoryId": "rastreamento-iot",
+  "summary": "Sistema corporativo de rastreamento veicular, cercas eletrônicas e telemetria logística com PostGIS.",
+  "description": "Plataforma robusta para gestão logística de veículos e motoristas, monitoramento de execuções de rotas planejadas, verificação de geofences (cercas eletrônicas) e alertas automáticos via WhatsApp.",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/prl/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    "C#",
+    "ASP.NET Core Web API",
+    ".NET",
+    "PostgreSQL",
+    "PostGIS",
+    "Docker Compose",
+    "WhatsApp API"
+  ],
+  "screenshots": [],
+  "features": [
+    "Ingestão contínua de pontos de telemetria geográfica em banco espacial PostGIS",
+    "Detecção em tempo real de violação de cerca eletrônica (Geofence) e desvio de rota",
+    "Acompanhamento do ciclo diário de veículos e resumo operacional por motorista",
+    "Disparo automatizado de notificações e logs de avisos via WhatsApp"
+  ],
+  "architecture": "Arquitetura modular em camadas (API, Application, Domain, Infrastructure) suportada por banco relacional espacial PostgreSQL/PostGIS conteinerizado.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "cantinaapp",
+  "title": "CantinaApp",
+  "slug": "cantinaapp",
+  "categoryId": "gestao-operacional",
+  "summary": "Sistema completo de gestão para cantinas escolares em ASP.NET Core MVC.",
+  "description": "Plataforma para facilitar o controle de consumo de cadernetas, gestão de estoque de produtos, faturamento para responsáveis e automação de processos de vendas em ambientes escolares.",
+  "status": "Em Produção",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/cantinaapp/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    "C#",
+    "ASP.NET Core MVC",
+    "Entity Framework Core",
+    "Docker",
+    "SQLite",
+    "Bootstrap"
+  ],
+  "screenshots": [],
+  "features": [
+    "Gestão de acessos com perfis de Administrador, Vendedor e Responsável (Pais)",
+    "Controle de dependentes vinculados a responsáveis com limites de consumo",
+    "Suporte a contas Pré-pagas (recarga de saldo) e Pós-pagas (faturamento periódico)",
+    "Frente de caixa (PDV) ágil para atendimento no balcão da cantina",
+    "Gestão de estoque com alertas de reposição e controle de margem"
+  ],
+  "architecture": "Aplicação web monolítica em camadas (MVC) conteinerizada com Docker, persistência via EF Core e suporte a deploy no Railway.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

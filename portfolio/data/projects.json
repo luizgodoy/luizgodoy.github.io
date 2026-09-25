@@ -1,0 +1,649 @@
+[
+  {
+    "id": "applic",
+    "title": "Applic — Aplicação Subcutânea",
+    "slug": "applic",
+    "categoryId": "saude-utilitarios",
+    "summary": "Aplicativo Android offline em .NET MAUI para registro e organização de aplicações subcutâneas pessoais.",
+    "description": "Desenvolvido como ferramenta de acompanhamento pessoal e familiar para histórico de dosagens e aplicações, operando de forma 100% offline com persistência local SQLite e notificações nativas do Android.",
+    "status": "Concluído",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/applic/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      ".NET MAUI",
+      "C#",
+      "SQLite",
+      "XAML",
+      "Android",
+      "MVVM"
+    ],
+    "screenshots": [],
+    "features": [
+      "Operação completamente offline para máxima privacidade do paciente",
+      "Registro detalhado de histórico e data/hora de aplicações",
+      "Notificações locais do Android para lembretes de dosagem",
+      "Arquitetura desacoplada (UI -> ViewModel -> Service -> Repository -> SQLite)"
+    ],
+    "architecture": "Arquitetura limpa para aplicativos móveis em .NET MAUI com injeção de dependência e persistência local SQLite.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "cantinaapp",
+    "title": "CantinaApp",
+    "slug": "cantinaapp",
+    "categoryId": "gestao-operacional",
+    "summary": "Sistema completo de gestão para cantinas escolares em ASP.NET Core MVC.",
+    "description": "Plataforma para facilitar o controle de consumo de cadernetas, gestão de estoque de produtos, faturamento para responsáveis e automação de processos de vendas em ambientes escolares.",
+    "status": "Em Produção",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/cantinaapp/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      "C#",
+      "ASP.NET Core MVC",
+      "Entity Framework Core",
+      "Docker",
+      "SQLite",
+      "Bootstrap"
+    ],
+    "screenshots": [],
+    "features": [
+      "Gestão de acessos com perfis de Administrador, Vendedor e Responsável (Pais)",
+      "Controle de dependentes vinculados a responsáveis com limites de consumo",
+      "Suporte a contas Pré-pagas (recarga de saldo) e Pós-pagas (faturamento periódico)",
+      "Frente de caixa (PDV) ágil para atendimento no balcão da cantina",
+      "Gestão de estoque com alertas de reposição e controle de margem"
+    ],
+    "architecture": "Aplicação web monolítica em camadas (MVC) conteinerizada com Docker, persistência via EF Core e suporte a deploy no Railway.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "carwarmweb",
+    "title": "CarWarmWeb (AvisoPlaca)",
+    "slug": "carwarmweb",
+    "categoryId": "saude-utilitarios",
+    "summary": "Serviço web para consulta de placas veiculares e envio de notificações de não-conformidade a proprietários.",
+    "description": "Aplicação em ASP.NET Core 8 Razor Pages que integra a BrasilAPI para consulta de veículos e permite que motoristas registrem avisos anônimos para veículos (farol aceso, pneu murcho, estacionamento irregular).",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/carwarmweb/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      "C#",
+      "ASP.NET Core 8 Razor Pages",
+      "Entity Framework Core",
+      "SQLite",
+      "BrasilAPI",
+      "SHA-256"
+    ],
+    "screenshots": [],
+    "features": [
+      "Consulta instantânea de modelo/marca via API pública BrasilAPI com cache de 24h",
+      "Validação estrita de placas nos padrões brasileiro antigo (ABC-1234) e Mercosul (ABC1D23)",
+      "Envio de avisos de não-conformidade categorizados",
+      "Mecanismo de rate limiting com hash SHA-256 de IPs para coibir spam e proteger privacidade"
+    ],
+    "architecture": "Aplicação Razor Pages enxuta sem controllers de API, com PageModels encapsulando regras de negócio e SQLite embutido.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "doconceweb",
+    "title": "DocOnceWeb",
+    "slug": "doconceweb",
+    "categoryId": "produtividade-dados",
+    "summary": "Plataforma para geração e automação de documentos corporativos .docx a partir de modelos.",
+    "description": "Sistema web centralizado em ASP.NET Core MVC para parametrização de modelos de contrato e relatórios, permitindo a substituição de tags dinâmicas e exportação de arquivos Word utilizando a biblioteca DocX.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/doconceweb/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      "C#",
+      "ASP.NET Core MVC",
+      "DocX Library",
+      "Entity Framework Core",
+      "SQLite"
+    ],
+    "screenshots": [],
+    "features": [
+      "Criação e edição de templates documentais com marcadores dinâmicos",
+      "Motor de preenchimento automático em lote gerando arquivos .docx",
+      "Histórico de documentos gerados por operador com download direto",
+      "Controle de versionamento de minutas padrão"
+    ],
+    "architecture": "Arquitetura ASP.NET Core MVC clássica com serviços dedicados de renderização documental e persistência de dados em SQLite.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "dynamicmis",
+    "title": "DynamicMIS — Informações Gerenciais Dinâmicas",
+    "slug": "dynamicmis",
+    "categoryId": "produtividade-dados",
+    "summary": "Plataforma flexível de Business Intelligence e gestão de informações gerenciais em .NET 8.",
+    "description": "Sistema corporativo multi-empresa que possibilita aos gestores cadastrar entidades e atributos de dados de forma dinâmica e em tempo de execução, eliminando a dependência de código novo para novas coleções de indicadores.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/dynamicmis/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      ".NET 8",
+      "C#",
+      "ASP.NET Core MVC",
+      "Entity Framework Core",
+      "SQLite"
+    ],
+    "screenshots": [],
+    "features": [
+      "Estrutura multi-tenant com isolamento lógico estrito de dados por empresa",
+      "Definição de entidades e atributos customizados dinamicamente pelo painel",
+      "Dashboards com gráficos analíticos e métricas gerenciais em tempo real",
+      "Exportação de tabelas dinâmicas para análise externa"
+    ],
+    "architecture": "Padrão MVC com metamodelo relacional para propriedades dinâmicas e EF Core para gerenciamento de esquema.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "familytracker",
+    "title": "FamilyTracker",
+    "slug": "familytracker",
+    "categoryId": "rastreamento-iot",
+    "summary": "Ecossistema de rastreamento familiar em tempo real com app Android, dashboard web e simulador de telemetria.",
+    "description": "Solução integrada composta por aplicativo móvel em Kotlin/Compose (.NET MAUI), backend ASP.NET Core com mapa interativo para monitoramento de rotas e simulador de telemetria para validação de carga.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/familytracker/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      "ASP.NET Core",
+      "Kotlin / Jetpack Compose",
+      ".NET MAUI",
+      "SignalR",
+      "Leaflet",
+      "OSRM Route API",
+      "C#"
+    ],
+    "screenshots": [],
+    "features": [
+      "Transmissão de telemetria GPS em segundo plano com tratamento de perda de sinal",
+      "Visualização de rotas em tempo real sobre mapas vetoriais via SignalR",
+      "Integração com API OSRM para map-matching e cálculo de trajetos viários",
+      "Simulador de dispositivos para testes de estresse de ingestão"
+    ],
+    "architecture": "Arquitetura distribuída com app transmissor via HTTP/REST, ingestão assíncrona, broadcast via WebSockets e dashboard web responsivo.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "inspectionsystem",
+    "title": "InspectionSystem — Gestão de Ativos e Inspeções",
+    "slug": "inspectionsystem",
+    "categoryId": "gestao-operacional",
+    "summary": "Plataforma para inspeção de equipamentos, controle de conformidade e ordens de manutenção.",
+    "description": "Sistema completo para gestão do ciclo de vida de ativos físicos, permitindo a criação de checklists dinâmicos, vistorias em campo e geração automatizada de ordens de serviço corretivas e preventivas.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/inspectionsystem/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      "C#",
+      "ASP.NET Core 8 MVC",
+      "Entity Framework Core",
+      "SQLite",
+      "Bootstrap"
+    ],
+    "screenshots": [],
+    "features": [
+      "Cadastro e rastreamento de ativos com status de integridade e histórico de manutenção",
+      "Checklists parametrizáveis com tipos de resposta múltiplos e registro de evidências",
+      "Geração automática de ordens de serviço após constatação de não-conformidade",
+      "Relatórios de auditoria e conformidade técnica para atendimento a normas"
+    ],
+    "architecture": "Arquitetura MVC corporativa com camadas de serviço especializadas para workflows de aprovação e ordens de manutenção.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "iot-lat-lon-processor",
+    "title": "IoT Lat/Lon Processor",
+    "slug": "iot-lat-lon-processor",
+    "categoryId": "rastreamento-iot",
+    "summary": "Processador desktop de alto desempenho para enriquecimento geográfico em lote de coordenadas IoT.",
+    "description": "Ferramenta desenvolvida para converter milhões de coordenadas brutas de GPS de dispositivos IoT, telemetria e frotas veiculares em endereços legíveis, bairros e cidades em planilhas CSV e Excel.",
+    "status": "Concluído",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/iot-lat-lon-processor/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      ".NET",
+      "C#",
+      "Geocoding APIs",
+      "EPPlus",
+      "Parallel Tasks"
+    ],
+    "screenshots": [],
+    "features": [
+      "Processamento concorrente em lote otimizado para milhões de registros",
+      "Reverse geocoding inteligente com cache local para redução de consumo de cotas de APIs",
+      "Suporte nativo a leitura e escrita de grandes arquivos CSV e planilhas Excel XLSX",
+      "Métricas de vazão, estimativa de tempo restante e tratamento tolerante a falhas de rede"
+    ],
+    "architecture": "Console / Desktop orientado a pipelines de streaming e tarefas paralelas (TPL) com buffer em memória e persistência em cache local.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "kidstracker",
+    "title": "KidsTracker — Rastreamento de Transporte Escolar",
+    "slug": "kidstracker",
+    "categoryId": "rastreamento-iot",
+    "summary": "Plataforma especializada em monitoramento em tempo real de frotas e vans de transporte escolar.",
+    "description": "Sistema projetado para prover tranquilidade a pais e escolas, monitorando o trajeto de vans escolares, pontos de embarque/desembarque de alunos e alertas de aproximação em tempo real.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/kidstracker/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      ".NET 10",
+      ".NET MAUI Android",
+      "ASP.NET Core MVC",
+      "Web API",
+      "SignalR",
+      "SQLite",
+      "PostgreSQL"
+    ],
+    "screenshots": [],
+    "features": [
+      "App móvel do condutor para transmissão de GPS e confirmação de embarque de alunos",
+      "Painel em tempo real para pais com notificação de aproximação da van escolar",
+      "Notificações de entrada e saída de áreas georreferenciadas (geofencing escolar)",
+      "Comunicação bidirecional e eventos em tempo real com SignalR"
+    ],
+    "architecture": "Solução moderna em .NET 10 com app MAUI Android, backend híbrido MVC/API e hub SignalR para streaming de posições.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "litedisc",
+    "title": "LiteDisc",
+    "slug": "litedisc",
+    "categoryId": "produtividade-dados",
+    "summary": "Plataforma de armazenamento em nuvem e gerenciamento seguro de arquivos multi-backend.",
+    "description": "Serviço web construído em ASP.NET Core 8 MVC para upload, download, pré-visualização e organização de pastas de arquivos isolados rigorosamente por usuário.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/litedisc/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      "C#",
+      "ASP.NET Core 8 MVC",
+      "SQLite",
+      "Entity Framework Core"
+    ],
+    "screenshots": [],
+    "features": [
+      "Gerenciador de arquivos completo com navegação hierárquica e breadcrumbs",
+      "Suporte a uploads de grandes arquivos (até 500 MB) em lote",
+      "Controle de acesso rigoroso por conta com isolamento físico de diretórios",
+      "Busca rápida por nome de arquivo e extensão"
+    ],
+    "architecture": "Arquitetura ASP.NET Core MVC com abstração de provedor de armazenamento (Local Disk / Cloud Storage) e metadados no SQLite.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "litemail",
+    "title": "LiteMail — Webmail Multi-Domínio",
+    "slug": "litemail",
+    "categoryId": "produtividade-dados",
+    "summary": "Cliente webmail corporativo multi-domínio em ASP.NET Core e MailKit.",
+    "description": "Interface web moderna e leve para leitura, envio e gerenciamento de caixas de correio eletrônico em múltiplos domínios, com suporte a servidores SMTP/IMAP corporativos (Mailcow/Docker).",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/litemail/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      "C#",
+      "ASP.NET Core 8 MVC",
+      "MailKit",
+      "MimeKit",
+      "Docker",
+      "Mailcow"
+    ],
+    "screenshots": [],
+    "features": [
+      "Acesso a caixas postais IMAP com renderização segura de e-mails em HTML",
+      "Composição e envio de mensagens com anexos via protocolo SMTP com TLS/SSL",
+      "Suporte nativo a múltiplos domínios de correio em um único portal",
+      "Isolamento de sessão de usuário e credenciais temporárias em memória"
+    ],
+    "architecture": "Camada de interface webmail desacoplada do servidor de correio (Mailcow), utilizando a biblioteca MailKit para orquestração de protocolos.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "pdveventos",
+    "title": "PdvEventos — Frente de Caixa para Eventos",
+    "slug": "pdveventos",
+    "categoryId": "gestao-operacional",
+    "summary": "Sistema de Frente de Caixa (POS) de alto desempenho com interface moderna para feiras e eventos.",
+    "description": "Plataforma focada em velocidade de atendimento em balcões de eventos temporários, festas e feiras, combinando design moderno Glassmorphism com operação tolerante a instabilidade de rede.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/pdveventos/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      "C#",
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "SQLite",
+      "HTML5 / Modern CSS"
+    ],
+    "screenshots": [],
+    "features": [
+      "Interface rápida e intuitiva no padrão Glassmorphism pensada para telas touch e operadores rápidos",
+      "Emissão e controle de fichas de produtos e consumações com QR code / código de barras",
+      "Fechamento de caixa por operador com conferência detalhada por forma de pagamento",
+      "Relatórios consolidados de vendas por hora e produtos mais comercializados"
+    ],
+    "architecture": "Aplicação web local de alta performance com banco embutido SQLite para garantir que o caixa opere sem interrupções mesmo sem internet.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "prl",
+    "title": "PRL — Logística e Rastreamento de Frotas",
+    "slug": "prl",
+    "categoryId": "rastreamento-iot",
+    "summary": "Sistema corporativo de rastreamento veicular, cercas eletrônicas e telemetria logística com PostGIS.",
+    "description": "Plataforma robusta para gestão logística de veículos e motoristas, monitoramento de execuções de rotas planejadas, verificação de geofences (cercas eletrônicas) e alertas automáticos via WhatsApp.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/prl/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      "C#",
+      "ASP.NET Core Web API",
+      ".NET",
+      "PostgreSQL",
+      "PostGIS",
+      "Docker Compose",
+      "WhatsApp API"
+    ],
+    "screenshots": [],
+    "features": [
+      "Ingestão contínua de pontos de telemetria geográfica em banco espacial PostGIS",
+      "Detecção em tempo real de violação de cerca eletrônica (Geofence) e desvio de rota",
+      "Acompanhamento do ciclo diário de veículos e resumo operacional por motorista",
+      "Disparo automatizado de notificações e logs de avisos via WhatsApp"
+    ],
+    "architecture": "Arquitetura modular em camadas (API, Application, Domain, Infrastructure) suportada por banco relacional espacial PostgreSQL/PostGIS conteinerizado.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "rental",
+    "title": "Rental — Gestão de Locação de Equipamentos",
+    "slug": "rental",
+    "categoryId": "gestao-operacional",
+    "summary": "Sistema web completo em .NET 10 e Clean Architecture para controle de locações e contratos.",
+    "description": "Software de governança operacional e financeira para empresas de locação de equipamentos, ferramentas e maquinários, garantindo rastreabilidade de contratos, períodos de vigência e devoluções.",
+    "status": "Em Produção",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/rental/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      ".NET 10",
+      "C#",
+      "Clean Architecture",
+      "ASP.NET Core MVC",
+      "Web API",
+      "EF Core",
+      "SQLite",
+      "xUnit"
+    ],
+    "screenshots": [],
+    "features": [
+      "Cadastro completo de catálogo de equipamentos disponíveis e em manutenção",
+      "Controle de contratos de locação com cálculo automatizado de diárias e penalidades",
+      "Registro de saída, termo de entrega técnica e checklist de devolução",
+      "Suíte completa de testes automatizados garantindo a integridade das regras de negócio"
+    ],
+    "architecture": "Arquitetura Limpa (Domain, Application, Infrastructure, Web, Tests) em .NET 10 com injeção de dependência e desacoplamento de persistência.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "reportscheduler",
+    "title": "ReportScheduler",
+    "slug": "reportscheduler",
+    "categoryId": "produtividade-dados",
+    "summary": "Agendador de consultas SQL multi-banco com exportação automática de relatórios em Excel.",
+    "description": "Aplicação web em .NET 10 / ASP.NET Core MVC para cadastrar conexões com múltiplos bancos corporativos, programar consultas SQL parametrizadas e disponibilizar relatórios automáticos compactados em .zip.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/reportscheduler/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      ".NET 10",
+      "C#",
+      "ASP.NET Core MVC",
+      "Oracle",
+      "SQL Server",
+      "PostgreSQL",
+      "MySQL",
+      "SQLite",
+      "EPPlus"
+    ],
+    "screenshots": [],
+    "features": [
+      "Suporte nativo a conexões com Oracle, SQL Server, PostgreSQL, MySQL e SQLite com teste de conectividade",
+      "Editor de consultas SQL parametrizadas com histórico de filtros aplicados",
+      "Agendamento cron/periódico de execuções automáticas sem intervenção humana",
+      "Geração e compactação de planilhas Excel em arquivos .zip com log de execução auditável"
+    ],
+    "architecture": "Aplicação ASP.NET Core MVC com engine de execução de background tasks e drivers de banco de dados heterogêneos.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "tournamentengine",
+    "title": "TournamentEngine",
+    "slug": "tournamentengine",
+    "categoryId": "multimidia-jogos",
+    "summary": "Motor de chaveamento de torneios esportivos, campeonatos de mata-mata e rankings de atletas.",
+    "description": "Plataforma para organização de competições esportivas, oferecendo geração automatizada de chaves de mata-mata, cálculo de classificação por grupos, fases eliminatórias e estatísticas individuais de atletas.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/tournamentengine/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      ".NET",
+      "C#",
+      "Clean Architecture",
+      "PWA (Progressive Web App)",
+      "xUnit",
+      "Domain-Driven Design"
+    ],
+    "screenshots": [],
+    "features": [
+      "Geração automática de chaves de mata-mata balanceadas e fases de grupos",
+      "Configuração dinâmica de número de classificados por grupo e regras de desempate",
+      "Estatísticas individuais de jogadores e ranking consolidado da competição",
+      "Interface PWA rápida e responsiva para consulta em tempo real durante jogos"
+    ],
+    "architecture": "Arquitetura orientada ao domínio (DDD) com separação rígida entre regras de classificação esportiva e camada de apresentação.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  },
+  {
+    "id": "youtubevideocutter",
+    "title": "YouTubeVideoCutter",
+    "slug": "youtubevideocutter",
+    "categoryId": "multimidia-jogos",
+    "summary": "Aplicativo local em Blazor Server e FFmpeg para download, corte e edição de mídia do YouTube.",
+    "description": "Ferramenta desenvolvida para execução local que permite o download e recorte de trechos específicos de áudio e vídeo do YouTube em alta velocidade utilizando o FFmpeg em modo cópia direta sem re-codificação.",
+    "status": "Ativo",
+    "repository": {
+      "url": "",
+      "visibility": "private"
+    },
+    "links": {
+      "homologation": "",
+      "production": "",
+      "privacy": "projects/youtubevideocutter/privacy/index.html",
+      "documentation": []
+    },
+    "technologies": [
+      ".NET 8",
+      "C#",
+      "ASP.NET Core Blazor Server",
+      "FFmpeg",
+      "Local Cache System"
+    ],
+    "screenshots": [],
+    "features": [
+      "Download sob demanda e sistema de cache local de mídia para economia de banda",
+      "Corte ultra-rápido de segmentos de vídeo sem perda de qualidade (stream copy via FFmpeg)",
+      "Interface interativa em Blazor Server para seleção visual de timestamps de início e fim",
+      "Exportação de faixas de áudio isoladas (MP3/M4A) ou vídeos completos (MP4)"
+    ],
+    "architecture": "Aplicação web local em Blazor Server acoplada ao executável do FFmpeg gerenciado através de processos seguros em segundo plano.",
+    "published": true,
+    "displayOrder": 0,
+    "updatedAt": "2026-09-25"
+  }
+]

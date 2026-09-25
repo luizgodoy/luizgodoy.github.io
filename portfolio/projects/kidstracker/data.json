@@ -1,0 +1,39 @@
+{
+  "id": "kidstracker",
+  "title": "KidsTracker — Rastreamento de Transporte Escolar",
+  "slug": "kidstracker",
+  "categoryId": "rastreamento-iot",
+  "summary": "Plataforma especializada em monitoramento em tempo real de frotas e vans de transporte escolar.",
+  "description": "Sistema projetado para prover tranquilidade a pais e escolas, monitorando o trajeto de vans escolares, pontos de embarque/desembarque de alunos e alertas de aproximação em tempo real.",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/kidstracker/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    ".NET 10",
+    ".NET MAUI Android",
+    "ASP.NET Core MVC",
+    "Web API",
+    "SignalR",
+    "SQLite",
+    "PostgreSQL"
+  ],
+  "screenshots": [],
+  "features": [
+    "App móvel do condutor para transmissão de GPS e confirmação de embarque de alunos",
+    "Painel em tempo real para pais com notificação de aproximação da van escolar",
+    "Notificações de entrada e saída de áreas georreferenciadas (geofencing escolar)",
+    "Comunicação bidirecional e eventos em tempo real com SignalR"
+  ],
+  "architecture": "Solução moderna em .NET 10 com app MAUI Android, backend híbrido MVC/API e hub SignalR para streaming de posições.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

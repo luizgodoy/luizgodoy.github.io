@@ -1,0 +1,37 @@
+{
+  "id": "inspectionsystem",
+  "title": "InspectionSystem — Gestão de Ativos e Inspeções",
+  "slug": "inspectionsystem",
+  "categoryId": "gestao-operacional",
+  "summary": "Plataforma para inspeção de equipamentos, controle de conformidade e ordens de manutenção.",
+  "description": "Sistema completo para gestão do ciclo de vida de ativos físicos, permitindo a criação de checklists dinâmicos, vistorias em campo e geração automatizada de ordens de serviço corretivas e preventivas.",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/inspectionsystem/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    "C#",
+    "ASP.NET Core 8 MVC",
+    "Entity Framework Core",
+    "SQLite",
+    "Bootstrap"
+  ],
+  "screenshots": [],
+  "features": [
+    "Cadastro e rastreamento de ativos com status de integridade e histórico de manutenção",
+    "Checklists parametrizáveis com tipos de resposta múltiplos e registro de evidências",
+    "Geração automática de ordens de serviço após constatação de não-conformidade",
+    "Relatórios de auditoria e conformidade técnica para atendimento a normas"
+  ],
+  "architecture": "Arquitetura MVC corporativa com camadas de serviço especializadas para workflows de aprovação e ordens de manutenção.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

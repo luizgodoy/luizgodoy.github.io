@@ -1,0 +1,38 @@
+{
+  "id": "tournamentengine",
+  "title": "TournamentEngine",
+  "slug": "tournamentengine",
+  "categoryId": "multimidia-jogos",
+  "summary": "Motor de chaveamento de torneios esportivos, campeonatos de mata-mata e rankings de atletas.",
+  "description": "Plataforma para organização de competições esportivas, oferecendo geração automatizada de chaves de mata-mata, cálculo de classificação por grupos, fases eliminatórias e estatísticas individuais de atletas.",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/tournamentengine/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    ".NET",
+    "C#",
+    "Clean Architecture",
+    "PWA (Progressive Web App)",
+    "xUnit",
+    "Domain-Driven Design"
+  ],
+  "screenshots": [],
+  "features": [
+    "Geração automática de chaves de mata-mata balanceadas e fases de grupos",
+    "Configuração dinâmica de número de classificados por grupo e regras de desempate",
+    "Estatísticas individuais de jogadores e ranking consolidado da competição",
+    "Interface PWA rápida e responsiva para consulta em tempo real durante jogos"
+  ],
+  "architecture": "Arquitetura orientada ao domínio (DDD) com separação rígida entre regras de classificação esportiva e camada de apresentação.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

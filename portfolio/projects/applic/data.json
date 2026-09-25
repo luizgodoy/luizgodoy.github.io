@@ -1,0 +1,38 @@
+{
+  "id": "applic",
+  "title": "Applic — Aplicação Subcutânea",
+  "slug": "applic",
+  "categoryId": "saude-utilitarios",
+  "summary": "Aplicativo Android offline em .NET MAUI para registro e organização de aplicações subcutâneas pessoais.",
+  "description": "Desenvolvido como ferramenta de acompanhamento pessoal e familiar para histórico de dosagens e aplicações, operando de forma 100% offline com persistência local SQLite e notificações nativas do Android.",
+  "status": "Concluído",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/applic/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    ".NET MAUI",
+    "C#",
+    "SQLite",
+    "XAML",
+    "Android",
+    "MVVM"
+  ],
+  "screenshots": [],
+  "features": [
+    "Operação completamente offline para máxima privacidade do paciente",
+    "Registro detalhado de histórico e data/hora de aplicações",
+    "Notificações locais do Android para lembretes de dosagem",
+    "Arquitetura desacoplada (UI -> ViewModel -> Service -> Repository -> SQLite)"
+  ],
+  "architecture": "Arquitetura limpa para aplicativos móveis em .NET MAUI com injeção de dependência e persistência local SQLite.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FamilyTracker | Portfolio &amp; Wiki</title>
+  <meta name="description" content="Ecossistema de rastreamento familiar em tempo real com app Android, dashboard web e simulador de telemetria.">
+  
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FamilyTracker | Portfolio &amp; Wiki">
+  <meta property="og:description" content="Ecossistema de rastreamento familiar em tempo real com app Android, dashboard web e simulador de telemetria.">
+  <meta name="theme-color" content="#2563eb">
+
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="brand" aria-label="Página inicial do Portfolio">
+        <span>Portfolio Wiki</span>
+        <span class="brand-badge">Sistemas</span>
+      </a>
+
+      <nav aria-label="Menu principal">
+        <ul class="nav-links">
+          <li><a href="../../index.html" class="nav-link active">Projetos</a></li>
+          <li><a href="../../categories/index.html" class="nav-link ">Categorias</a></li>
+          <li><a href="../../pages/sobre/index.html" class="nav-link ">Sobre</a></li>
+          <li><a href="../../admin/index.html" class="nav-link" target="_blank" rel="noopener">Admin</a></li>
+          <li>
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar tema visual" aria-pressed="false">
+              🌙 Escuro
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  
+  <nav class="breadcrumb-container" aria-label="Navegação estrutural">
+    <div class="breadcrumb-inner">
+      <a href="../../index.html">Início</a>
+      <span class="breadcrumb-separator">/</span><a href="../../categories/index.html">Categorias</a><span class="breadcrumb-separator">/</span><a href="../../categories/rastreamento-iot/index.html">Rastreamento &amp; Telemetria IoT</a><span class="breadcrumb-separator">/</span><span aria-current="page">FamilyTracker</span>
+    </div>
+  </nav>
+
+  <main id="main-content" class="site-main">
+    
+    <div class="detail-header">
+      <h1 class="detail-title">FamilyTracker</h1>
+      <p class="detail-summary">Ecossistema de rastreamento familiar em tempo real com app Android, dashboard web e simulador de telemetria.</p>
+      <div class="detail-meta-bar">
+        <a href="../../categories/rastreamento-iot/index.html" class="badge badge-category">Categoria: Rastreamento &amp; Telemetria IoT</a>
+        <span class="badge badge-status">Status: Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+        <span class="text-muted" style="margin-left: auto; font-size: 0.85rem;">Atualizado em: 2026-09-25</span>
+      </div>
+    </div>
+
+    <section class="content-section" aria-labelledby="section-overview">
+      <h2 id="section-overview">Visão Geral & Objetivos</h2>
+      <p>Solução integrada composta por aplicativo móvel em Kotlin/Compose (.NET MAUI), backend ASP.NET Core com mapa interativo para monitoramento de rotas e simulador de telemetria para validação de carga.</p>
+    </section>
+
+    <section class="content-section" aria-labelledby="section-features">
+      <h2 id="section-features">Principais Funcionalidades Identificadas</h2>
+      <ul><li>Transmissão de telemetria GPS em segundo plano com tratamento de perda de sinal</li><li>Visualização de rotas em tempo real sobre mapas vetoriais via SignalR</li><li>Integração com API OSRM para map-matching e cálculo de trajetos viários</li><li>Simulador de dispositivos para testes de estresse de ingestão</li></ul>
+    </section>
+
+    <section class="content-section" aria-labelledby="section-architecture">
+      <h2 id="section-architecture">Tecnologia & Arquitetura</h2>
+      <p>Arquitetura distribuída com app transmissor via HTTP/REST, ingestão assíncrona, broadcast via WebSockets e dashboard web responsivo.</p>
+      <div style="margin-top: 1rem;">
+        <strong>Tecnologias Utilizadas:</strong>
+        <div class="tag-list" style="margin-top: 0.5rem;"><span class="tech-tag">ASP.NET Core</span><span class="tech-tag">Kotlin / Jetpack Compose</span><span class="tech-tag">.NET MAUI</span><span class="tech-tag">SignalR</span><span class="tech-tag">Leaflet</span><span class="tech-tag">OSRM Route API</span><span class="tech-tag">C#</span></div>
+      </div>
+    </section>
+
+    
+
+    <section class="content-section" aria-labelledby="section-links">
+      <h2 id="section-links">Ambientes & Repositórios</h2>
+      <div class="link-list">
+        <div class="link-item">
+          <span class="link-item-label">Repositório Git (Privado)</span>
+          <span class="text-muted">Não informado</span>
+        </div>
+        <div class="link-item">
+          <span class="link-item-label">Ambiente de Homologação</span>
+          <span class="text-muted">Não informado</span>
+        </div>
+        <div class="link-item">
+          <span class="link-item-label">Ambiente de Produção</span>
+          <span class="text-muted">Não informado</span>
+        </div>
+        <div class="link-item">
+          <span class="link-item-label">LGPD / Termo de Privacidade</span>
+          <a href="../../projects/familytracker/privacy/index.html">Ver Declaração de Privacidade do Projeto &rarr;</a>
+        </div>
+        
+      </div>
+    </section>
+
+    
+      <section style="margin-top: 3rem;">
+        <h2 class="section-title">Outros Projetos na Categoria Rastreamento &amp; Telemetria IoT</h2>
+        <div class="card-grid">
+          
+    <article class="project-card" data-search="IoT Lat/Lon Processor Rastreamento &amp; Telemetria IoT .NET C# Geocoding APIs EPPlus Parallel Tasks">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="../../projects/iot-lat-lon-processor/index.html">IoT Lat/Lon Processor</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Rastreamento &amp; Telemetria IoT</span>
+        <span class="badge badge-status">Concluído</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Processador desktop de alto desempenho para enriquecimento geográfico em lote de coordenadas IoT.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">.NET</span><span class="tech-tag">C#</span><span class="tech-tag">Geocoding APIs</span><span class="tech-tag">EPPlus</span><span class="tech-tag">Parallel Tasks</span></div>
+      <div class="project-card-footer">
+        <a href="../../projects/iot-lat-lon-processor/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="../../projects/iot-lat-lon-processor/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="KidsTracker — Rastreamento de Transporte Escolar Rastreamento &amp; Telemetria IoT .NET 10 .NET MAUI Android ASP.NET Core MVC Web API SignalR SQLite PostgreSQL">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="../../projects/kidstracker/index.html">KidsTracker — Rastreamento de Transporte Escolar</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Rastreamento &amp; Telemetria IoT</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Plataforma especializada em monitoramento em tempo real de frotas e vans de transporte escolar.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">.NET 10</span><span class="tech-tag">.NET MAUI Android</span><span class="tech-tag">ASP.NET Core MVC</span><span class="tech-tag">Web API</span><span class="tech-tag">SignalR</span></div>
+      <div class="project-card-footer">
+        <a href="../../projects/kidstracker/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="../../projects/kidstracker/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+    <article class="project-card" data-search="PRL — Logística e Rastreamento de Frotas Rastreamento &amp; Telemetria IoT C# ASP.NET Core Web API .NET PostgreSQL PostGIS Docker Compose WhatsApp API">
+      <div class="project-card-header">
+        <h3 class="project-card-title">
+          <a href="../../projects/prl/index.html">PRL — Logística e Rastreamento de Frotas</a>
+        </h3>
+      </div>
+      <div class="badge-group">
+        <span class="badge badge-category">Rastreamento &amp; Telemetria IoT</span>
+        <span class="badge badge-status">Ativo</span>
+        <span class="badge badge-private">Repositório Privado</span>
+      </div>
+      <p class="project-summary">Sistema corporativo de rastreamento veicular, cercas eletrônicas e telemetria logística com PostGIS.</p>
+      <div class="tag-list" aria-label="Tecnologias utilizadas"><span class="tech-tag">C#</span><span class="tech-tag">ASP.NET Core Web API</span><span class="tech-tag">.NET</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">PostGIS</span></div>
+      <div class="project-card-footer">
+        <a href="../../projects/prl/index.html" class="btn btn-primary btn-sm">Ver Detalhes &rarr;</a>
+        <a href="../../projects/prl/privacy/index.html" class="btn btn-secondary btn-sm" title="Declaração de Privacidade do Projeto">LGPD</a>
+      </div>
+    </article>
+  
+        </div>
+      </section>
+    
+  
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <strong>Portfolio & Wiki de Produtos</strong>
+          <p>Documentação arquitetural, técnica e de conformidade LGPD de sistemas corporativos.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="../../index.html">Projetos</a></li>
+          <li><a href="../../categories/index.html">Categorias</a></li>
+          <li><a href="../../pages/sobre/index.html">Sobre</a></li>
+          <li><a href="../../pages/politica-geral-privacidade/index.html">LGPD & Privacidade</a></li>
+          <li><a href="../../admin/index.html">Acesso Administrativo</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Portfolio Wiki. Todos os direitos reservados.</p>
+        <p>Documentação gerada estaticamente a partir de repositórios auditados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  
+</body>
+</html>

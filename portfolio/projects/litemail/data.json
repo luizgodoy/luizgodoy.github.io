@@ -1,0 +1,38 @@
+{
+  "id": "litemail",
+  "title": "LiteMail — Webmail Multi-Domínio",
+  "slug": "litemail",
+  "categoryId": "produtividade-dados",
+  "summary": "Cliente webmail corporativo multi-domínio em ASP.NET Core e MailKit.",
+  "description": "Interface web moderna e leve para leitura, envio e gerenciamento de caixas de correio eletrônico em múltiplos domínios, com suporte a servidores SMTP/IMAP corporativos (Mailcow/Docker).",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/litemail/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    "C#",
+    "ASP.NET Core 8 MVC",
+    "MailKit",
+    "MimeKit",
+    "Docker",
+    "Mailcow"
+  ],
+  "screenshots": [],
+  "features": [
+    "Acesso a caixas postais IMAP com renderização segura de e-mails em HTML",
+    "Composição e envio de mensagens com anexos via protocolo SMTP com TLS/SSL",
+    "Suporte nativo a múltiplos domínios de correio em um único portal",
+    "Isolamento de sessão de usuário e credenciais temporárias em memória"
+  ],
+  "architecture": "Camada de interface webmail desacoplada do servidor de correio (Mailcow), utilizando a biblioteca MailKit para orquestração de protocolos.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

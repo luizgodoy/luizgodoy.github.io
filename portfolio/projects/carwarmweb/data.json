@@ -1,0 +1,38 @@
+{
+  "id": "carwarmweb",
+  "title": "CarWarmWeb (AvisoPlaca)",
+  "slug": "carwarmweb",
+  "categoryId": "saude-utilitarios",
+  "summary": "Serviço web para consulta de placas veiculares e envio de notificações de não-conformidade a proprietários.",
+  "description": "Aplicação em ASP.NET Core 8 Razor Pages que integra a BrasilAPI para consulta de veículos e permite que motoristas registrem avisos anônimos para veículos (farol aceso, pneu murcho, estacionamento irregular).",
+  "status": "Ativo",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/carwarmweb/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    "C#",
+    "ASP.NET Core 8 Razor Pages",
+    "Entity Framework Core",
+    "SQLite",
+    "BrasilAPI",
+    "SHA-256"
+  ],
+  "screenshots": [],
+  "features": [
+    "Consulta instantânea de modelo/marca via API pública BrasilAPI com cache de 24h",
+    "Validação estrita de placas nos padrões brasileiro antigo (ABC-1234) e Mercosul (ABC1D23)",
+    "Envio de avisos de não-conformidade categorizados",
+    "Mecanismo de rate limiting com hash SHA-256 de IPs para coibir spam e proteger privacidade"
+  ],
+  "architecture": "Aplicação Razor Pages enxuta sem controllers de API, com PageModels encapsulando regras de negócio e SQLite embutido.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

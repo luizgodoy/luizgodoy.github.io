@@ -1,0 +1,40 @@
+{
+  "id": "rental",
+  "title": "Rental — Gestão de Locação de Equipamentos",
+  "slug": "rental",
+  "categoryId": "gestao-operacional",
+  "summary": "Sistema web completo em .NET 10 e Clean Architecture para controle de locações e contratos.",
+  "description": "Software de governança operacional e financeira para empresas de locação de equipamentos, ferramentas e maquinários, garantindo rastreabilidade de contratos, períodos de vigência e devoluções.",
+  "status": "Em Produção",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/rental/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    ".NET 10",
+    "C#",
+    "Clean Architecture",
+    "ASP.NET Core MVC",
+    "Web API",
+    "EF Core",
+    "SQLite",
+    "xUnit"
+  ],
+  "screenshots": [],
+  "features": [
+    "Cadastro completo de catálogo de equipamentos disponíveis e em manutenção",
+    "Controle de contratos de locação com cálculo automatizado de diárias e penalidades",
+    "Registro de saída, termo de entrega técnica e checklist de devolução",
+    "Suíte completa de testes automatizados garantindo a integridade das regras de negócio"
+  ],
+  "architecture": "Arquitetura Limpa (Domain, Application, Infrastructure, Web, Tests) em .NET 10 com injeção de dependência e desacoplamento de persistência.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}

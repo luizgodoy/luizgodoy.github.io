@@ -1,0 +1,37 @@
+{
+  "id": "iot-lat-lon-processor",
+  "title": "IoT Lat/Lon Processor",
+  "slug": "iot-lat-lon-processor",
+  "categoryId": "rastreamento-iot",
+  "summary": "Processador desktop de alto desempenho para enriquecimento geográfico em lote de coordenadas IoT.",
+  "description": "Ferramenta desenvolvida para converter milhões de coordenadas brutas de GPS de dispositivos IoT, telemetria e frotas veiculares em endereços legíveis, bairros e cidades em planilhas CSV e Excel.",
+  "status": "Concluído",
+  "repository": {
+    "url": "",
+    "visibility": "private"
+  },
+  "links": {
+    "homologation": "",
+    "production": "",
+    "privacy": "projects/iot-lat-lon-processor/privacy/index.html",
+    "documentation": []
+  },
+  "technologies": [
+    ".NET",
+    "C#",
+    "Geocoding APIs",
+    "EPPlus",
+    "Parallel Tasks"
+  ],
+  "screenshots": [],
+  "features": [
+    "Processamento concorrente em lote otimizado para milhões de registros",
+    "Reverse geocoding inteligente com cache local para redução de consumo de cotas de APIs",
+    "Suporte nativo a leitura e escrita de grandes arquivos CSV e planilhas Excel XLSX",
+    "Métricas de vazão, estimativa de tempo restante e tratamento tolerante a falhas de rede"
+  ],
+  "architecture": "Console / Desktop orientado a pipelines de streaming e tarefas paralelas (TPL) com buffer em memória e persistência em cache local.",
+  "published": true,
+  "displayOrder": 0,
+  "updatedAt": "2026-09-25"
+}
