@@ -578,9 +578,13 @@
         function updateFromBase36() {
           const val = base36Input.value.trim();
           if (val === '') { decInput.value = ''; result.textContent = '⏳ aguardando...'; return; }
+          if (!/^[0-9a-z]+$/i.test(val)) {
+            result.textContent = '⚠️ base36 inválido (0-9, A-Z)';
+            return;
+          }
           try {
             const dec = parseInt(val, 36);
-            if (isNaN(dec) || dec < 0) throw new Error();
+            if (!Number.isSafeInteger(dec) || dec < 0) throw new Error();
             decInput.value = dec;
             result.textContent = `→ ${dec} decimal = ${val.toUpperCase()} (base36)`;
           } catch (_) {
@@ -602,13 +606,13 @@
 
         function hexToUtf8(hex) {
           let s = hex.replace(/\s/g, '');
-          if (s.length % 2 !== 0) return null;
+          if (!/^(?:[0-9a-f]{2})*$/i.test(s)) return null;
           const bytes = [];
           for (let i = 0; i < s.length; i += 2) {
             bytes.push(parseInt(s.substr(i, 2), 16));
           }
           try {
-            const decoder = new TextDecoder('utf-8');
+            const decoder = new TextDecoder('utf-8', { fatal: true });
             return decoder.decode(new Uint8Array(bytes));
           } catch (_) { return null; }
         }
@@ -655,8 +659,12 @@
           if (raw === '') { decOutput.value = ''; result.textContent = '⏳ aguardando...'; return; }
           let s = raw;
           if (/^0x/i.test(s)) s = s.slice(2);
+          if (!/^[0-9a-f]+$/i.test(s)) {
+            result.textContent = '⚠️ hexadecimal inválido';
+            return;
+          }
           const dec = parseInt(s, 16);
-          if (isNaN(dec) || dec < 0) {
+          if (!Number.isSafeInteger(dec) || dec < 0) {
             result.textContent = '⚠️ hexadecimal inválido';
             return;
           }
@@ -694,7 +702,7 @@
 
         function updateAllFromDecimal(value) {
           const num = Number(value);
-          if (!Number.isInteger(num) || num < 0) return false;
+          if (!Number.isSafeInteger(num) || num < 0) return false;
           bin.value = num.toString(2);
           oct.value = num.toString(8);
           hex.value = num.toString(16).toUpperCase();
@@ -704,9 +712,10 @@
 
         function parseFromBase(str, base) {
           let s = str.trim();
-          if (/^0x/i.test(s)) s = s.slice(2);
-          else if (/^0b/i.test(s)) s = s.slice(2);
-          else if (/^0o/i.test(s)) s = s.slice(2);
+          const prefix = { 2: /^0b/i, 8: /^0o/i, 16: /^0x/i }[base];
+          if (prefix && prefix.test(s)) s = s.slice(2);
+          const digits = { 2: /^[01]+$/, 8: /^[0-7]+$/, 10: /^[0-9]+$/, 16: /^[0-9a-f]+$/i }[base];
+          if (!digits || !digits.test(s)) return NaN;
           return parseInt(s, base);
         }
 
