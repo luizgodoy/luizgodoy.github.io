@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Base 36 para Decimal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 550px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            color: #2d2d44;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .subtitle strong {
+            color: #302b63;
+            font-weight: 600;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #2d2d44;
+            font-size: 15px;
+        }
+
+        label span {
+            color: #e74c3c;
+        }
+
+        input {
+            padding: 14px 18px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 20px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+            text-transform: uppercase;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #302b63;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(48, 43, 99, 0.15);
+        }
+
+        input::placeholder {
+            color: #aaa;
+            font-size: 16px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .info-hint {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 20px;
+            padding: 10px 14px;
+            background: #f0f0f5;
+            border-radius: 8px;
+            border-left: 4px solid #302b63;
+        }
+
+        .info-hint code {
+            background: #e0e0ea;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #2d2d44;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #302b63, #4a3f8a);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(48, 43, 99, 0.4);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .result-area {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 2px dashed #ddd;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        .result-area.has-result {
+            border-color: #302b63;
+            background: #f0edff;
+            border-style: solid;
+        }
+
+        .result-area .result-label {
+            color: #888;
+            font-size: 14px;
+            font-weight: 500;
+            margin-right: 12px;
+        }
+
+        .result-area .result-value {
+            font-size: 26px;
+            font-weight: 700;
+            color: #2d2d44;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            text-align: center;
+        }
+
+        .result-area .error-message {
+            color: #e74c3c;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .example {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .example span {
+            color: #302b63;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .example span:hover {
+            background: #e0ddf5;
+        }
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 25px 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            input {
+                font-size: 18px;
+                padding: 12px 14px;
+            }
+
+            .result-area .result-value {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🔢 Base 36 → Decimal</h1>
+        <p class="subtitle">
+            Converta números de <strong>base 36</strong> (0-9, A-Z) para <strong>base 10</strong>
+        </p>
+
+        <div class="input-group">
+            <label for="base36Input">
+                Valor em Base 36 <span>*</span>
+            </label>
+            <input
+                type="text"
+                id="base36Input"
+                placeholder="Ex: PHL4, 28F5PHL4, A1B2C3"
+                maxlength="20"
+                autofocus
+                spellcheck="false"
+            >
+        </div>
+
+        <div class="info-hint">
+            💡 Dígitos válidos: <code>0-9</code> e <code>A-Z</code> (maiúsculas ou minúsculas)
+        </div>
+
+        <button id="convertBtn">🔄 Converter</button>
+
+        <div class="result-area" id="resultArea">
+            <span class="result-label">Resultado:</span>
+            <span class="result-value" id="resultValue">—</span>
+        </div>
+
+        <div class="example">
+            ⚡ Exemplos:
+            <span onclick="fillExample('PHL4')">PHL4</span> ·
+            <span onclick="fillExample('28F5PHL4')">28F5PHL4</span> ·
+            <span onclick="fillExample('A1Z')">A1Z</span> ·
+            <span onclick="fillExample('ZZZZ')">ZZZZ</span>
+        </div>
+
+        <div class="footer">
+            Conversão posicional · Base 36 (0-9, A=10, B=11, …, Z=35)
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const input = document.getElementById('base36Input');
+            const convertBtn = document.getElementById('convertBtn');
+            const resultArea = document.getElementById('resultArea');
+            const resultValue = document.getElementById('resultValue');
+
+            // Função que valida e converte base 36 → decimal
+            function convertBase36ToDecimal(str) {
+                // Remove espaços e converte para maiúsculas
+                let clean = str.trim().toUpperCase();
+
+                if (clean === '') {
+                    return { error: 'Por favor, informe um valor.' };
+                }
+
+                // Expressão regular: permite apenas 0-9 e A-Z
+                const validChars = /^[0-9A-Z]+$/;
+                if (!validChars.test(clean)) {
+                    return { error: 'Caractere inválido! Use apenas 0-9 e A-Z.' };
+                }
+
+                // Converte usando parseInt com base 36 (nativo do JavaScript)
+                const decimal = parseInt(clean, 36);
+
+                // Verifica se o número é muito grande (acima do safe integer)
+                if (decimal > Number.MAX_SAFE_INTEGER) {
+                    return {
+                        error: 'Número muito grande! O valor excede o limite seguro (9.007.199.254.740.991).',
+                        partial: decimal
+                    };
+                }
+
+                if (isNaN(decimal)) {
+                    return { error: 'Erro ao converter. Verifique o valor informado.' };
+                }
+
+                return { value: decimal };
+            }
+
+            // Função principal de conversão e exibição
+            function performConversion() {
+                const raw = input.value;
+
+                // Limpa resultado anterior
+                resultArea.classList.remove('has-result');
+
+                const result = convertBase36ToDecimal(raw);
+
+                if (result.error) {
+                    resultValue.textContent = '❌ ' + result.error;
+                    resultValue.className = 'result-value error-message';
+                    resultArea.classList.add('has-result');
+                    return;
+                }
+
+                // Formata o número com separadores de milhar para melhor leitura
+                const formatted = result.value.toLocaleString('pt-BR');
+
+                // Mostra o resultado
+                resultValue.textContent = formatted;
+                resultValue.className = 'result-value';
+                resultArea.classList.add('has-result');
+
+                // Adiciona um pequeno detalhe: mostra o valor sem formatação no title
+                resultValue.title = `Valor exato: ${result.value}`;
+            }
+
+            // Preenche o input com um exemplo e converte automaticamente
+            window.fillExample = function(value) {
+                input.value = value;
+                performConversion();
+                input.focus();
+                input.select();
+            };
+
+            // Evento do botão
+            convertBtn.addEventListener('click', performConversion);
+
+            // Evento de tecla Enter no input
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performConversion();
+                }
+            });
+
+            // Converte automaticamente ao colar (com pequeno atraso para o valor ser inserido)
+            input.addEventListener('paste', function() {
+                setTimeout(performConversion, 50);
+            });
+
+            // Ao perder o foco, converte (opcional, mas útil)
+            input.addEventListener('blur', function() {
+                if (input.value.trim() !== '') {
+                    performConversion();
+                }
+            });
+
+            // Converte ao digitar? (desabilitado para não ficar irritante, mas pode ser ativado)
+            // input.addEventListener('input', function() {
+            //     if (input.value.trim() !== '') {
+            //         performConversion();
+            //     }
+            // });
+
+            // Foco inicial no input
+            input.focus();
+
+            // Se o usuário clicar no resultado, copia para a área de transferência
+            resultArea.addEventListener('click', function() {
+                const text = resultValue.textContent;
+                if (text && text !== '—' && !text.includes('❌')) {
+                    navigator.clipboard.writeText(text.replace(/\./g, '')).then(() => {
+                        // Feedback visual sutil
+                        const originalBg = resultArea.style.background;
+                        resultArea.style.background = '#d4edda';
+                        setTimeout(() => {
+                            resultArea.style.background = originalBg || '';
+                        }, 300);
+                    }).catch(() => {});
+                }
+            });
+
+            // Inicializa com um exemplo para demonstrar (opcional)
+            // Descomente a linha abaixo se quiser que a página já abra com um valor
+            // setTimeout(() => fillExample('PHL4'), 300);
+        })();
+    </script>
+
+</body>
+</html>
