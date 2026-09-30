@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>Conversor Hex / String</h1>
+        
+        <div class="converter-box">
+          <label for="string-input">String (Texto Normal)</label>
+          <textarea id="string-input" placeholder="Digite o texto aqui..."></textarea>
+        </div>
+
+        <div class="arrow">⇅</div>
+
+        <div class="converter-box">
+          <label for="hex-input">Hexadecimal</label>
+          <textarea id="hex-input" placeholder="O código hex aparecerá aqui..."></textarea>
+        </div>
+        
+        <div class="footer-info">
+          <small>Conversão em tempo real</small>
+        </div>
+      </div>
+    </main>
+
+    <nav class="sidebar">
+      <h2>Conversões</h2>
+      <ul>
+        <li><a href="base36.html">Base 36</a></li>
+        <li><a href="hexstr.html" class="active">Hex para String</a></li>
+      </ul>
+      <div style="margin-top: auto;">
+        <a href="index.html">← Início</a>
+      </div>
+    </nav>
+
+    <script src="src/script.js"></script>
+  </body>
+</html>

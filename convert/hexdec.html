@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Bases · Decimal ↔ Binário/Octal/Hex</title>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      background: #f4f7fc;
+      color: #1e293b;
+      display: flex;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* ---- SIDEBAR (igual ao original) ---- */
+    .sidebar {
+      width: 220px;
+      background: #0b1a2e;
+      color: #e2e8f0;
+      padding: 2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+      flex-shrink: 0;
+    }
+
+    .sidebar h2 {
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #2d3f57;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar a {
+      color: #b4c9e0;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      transition: 0.15s;
+    }
+
+    .sidebar a:hover {
+      background: #1e3550;
+      color: white;
+    }
+
+    .sidebar a.active {
+      background: #2a4a70;
+      color: white;
+      font-weight: 500;
+    }
+
+    .sidebar .back-link {
+      margin-top: 2rem;
+      border-top: 1px solid #2d3f57;
+      padding-top: 1.2rem;
+    }
+
+    .sidebar .back-link a {
+      color: #8aa3c0;
+    }
+
+    .sidebar .back-link a:hover {
+      color: white;
+      background: transparent;
+    }
+
+    /* ---- MAIN ---- */
+    main {
+      flex: 1;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 780px;
+      width: 100%;
+      background: white;
+      border-radius: 32px;
+      padding: 2.2rem 2.5rem 2rem;
+      box-shadow: 0 12px 30px rgba(0, 20, 40, 0.08);
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 2rem;
+      letter-spacing: -0.5px;
+      color: #0b1a2e;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h1 small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #5e6f88;
+      margin-left: 8px;
+    }
+
+    .converter-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 1.5rem;
+    }
+
+    .field-group {
+      flex: 1 1 180px;
+      min-width: 150px;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #475569;
+      margin-bottom: 0.25rem;
+    }
+
+    .field-group input {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      background: #f8fafc;
+      border: 1px solid #d1d9e8;
+      border-radius: 14px;
+      transition: 0.15s;
+      color: #0b1a2e;
+    }
+
+    .field-group input:focus {
+      outline: none;
+      border-color: #3b6c9e;
+      box-shadow: 0 0 0 3px rgba(59, 108, 158, 0.15);
+      background: white;
+    }
+
+    .field-group input::placeholder {
+      color: #94a3b8;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .arrow-symbol {
+      font-size: 1.8rem;
+      color: #7b8ba3;
+      padding: 0 0.2rem;
+      user-select: none;
+    }
+
+    .divider {
+      border: none;
+      border-top: 2px dashed #dce3ed;
+      margin: 0.75rem 0 1.2rem;
+    }
+
+    .footer-info {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: #6b7e99;
+      font-size: 0.85rem;
+      border-top: 1px solid #e9edf3;
+      padding-top: 1.2rem;
+    }
+
+    .footer-info small {
+      display: inline-block;
+      background: #f1f5f9;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      color: #2d405a;
+    }
+
+    /* Badge de base */
+    .base-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #e2eaf5;
+      color: #1e3b5c;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      margin-left: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    /* responsivo */
+    @media (max-width: 700px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0.8rem 1.2rem;
+        gap: 0.5rem 1rem;
+        align-items: center;
+      }
+      .sidebar h2 {
+        margin: 0;
+        border: none;
+        padding: 0;
+        font-size: 1rem;
+      }
+      .sidebar ul {
+        display: flex;
+        gap: 0.3rem;
+        flex-wrap: wrap;
+      }
+      .sidebar .back-link {
+        border: none;
+        padding: 0;
+        margin: 0 0 0 auto;
+      }
+      main {
+        padding: 1rem;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+      .row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .arrow-symbol {
+        text-align: center;
+        padding: 0.2rem 0;
+      }
+    }
+
+    @media (max-width: 450px) {
+      h1 {
+        font-size: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .field-group input {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.8rem;
+      }
+    }
+
+    /* Input com estilo monospace */
+    input[type="text"] {
+      font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+      letter-spacing: 0.3px;
+    }
+
+    /* highlight para campos ativos */
+    .field-group input:user-invalid {
+      border-color: #c73e4b;
+      box-shadow: 0 0 0 2px rgba(199, 62, 75, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR (igual ao original, com links) -->
+  <nav class="sidebar">
+    <h2>Conversões</h2>
+    <ul>
+      <li><a href="#" class="active">Decimal ↔ Bases</a></li>
+      <li><a href="#">Base36</a></li>
+      <li><a href="#">Hex ↔ String</a></li>
+    </ul>
+    <div class="back-link">
+      <a href="index.html">← Início</a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+      <h1>
+        ⚡ Conversor de Bases
+        <small>decimal · binário · octal · hex</small>
+      </h1>
+
+      <div class="converter-grid">
+
+        <!-- LINHA 1: Decimal (entrada principal) -->
+        <div class="row">
+          <div class="field-group" style="flex: 2;">
+            <label for="decimal-input">Decimal <span class="base-badge">base 10</span></label>
+            <input type="text" id="decimal-input" placeholder="Ex: 42, 255, 1024" value="42">
+          </div>
+          <div class="arrow-symbol">⇄</div>
+          <div class="field-group" style="flex: 1.5;">
+            <label for="bin-input">Binário <span class="base-badge">base 2</span></label>
+            <input type="text" id="bin-input" placeholder="0b101010" value="101010">
+          </div>
+        </div>
+
+        <!-- LINHA 2: Octal e Hexadecimal -->
+        <div class="row">
+          <div class="field-group">
+            <label for="oct-input">Octal <span class="base-badge">base 8</span></label>
+            <input type="text" id="oct-input" placeholder="0o52" value="52">
+          </div>
+          <div class="arrow-symbol" style="opacity:0.3;">⤵</div>
+          <div class="field-group">
+            <label for="hex-input">Hexadecimal <span class="base-badge">base 16</span></label>
+            <input type="text" id="hex-input" placeholder="0x2A" value="2A">
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Área de entrada alternativa: a partir de qualquer base -->
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem 1.2rem; background: #fafcff; padding: 0.8rem 1rem; border-radius: 20px;">
+          <div style="flex: 1; min-width: 140px;">
+            <label style="font-size:0.75rem; font-weight:600; color:#475569; display:block; margin-bottom: 0.2rem;">Converter de:</label>
+            <select id="from-base-select" style="width:100%; padding:0.5rem 0.8rem; border-radius: 30px; border:1px solid #d1d9e8; background:white; font-weight:500;">
+              <option value="10">Decimal (10)</option>
+              <option value="2">Binário (2)</option>
+              <option value="8">Octal (8)</option>
+              <option value="16" selected>Hexadecimal (16)</option>
+            </select>
+          </div>
+          <div style="flex: 2; min-width: 180px;">
+            <label style="font-size:0.75rem; font-weight:600; color:#475569; display:block; margin-bottom: 0.2rem;">Valor</label>
+            <input type="text" id="custom-input" placeholder="Digite o valor..." value="2A" style="width:100%; padding:0.5rem 0.8rem; border-radius: 30px; border:1px solid #d1d9e8; font-family: monospace;">
+          </div>
+          <div style="flex: 0 0 auto; display: flex; align-items: flex-end; padding-bottom: 2px;">
+            <button id="convert-custom-btn" style="background: #1f3a5c; border:none; color:white; padding:0.5rem 1.6rem; border-radius: 30px; font-weight:600; cursor:pointer; transition: 0.1s; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">Converter</button>
+          </div>
+        </div>
+
+        <div style="font-size:0.9rem; background:#f2f6fe; border-radius: 40px; padding: 0.3rem 1rem; margin-top: 0.2rem; color:#1e3a5f; text-align:center;">
+          <span id="custom-result" style="font-weight:600; font-family: monospace;">→ 42 (decimal) · 101010 (bin) · 52 (oct) · 2A (hex)</span>
+        </div>
+      </div>
+
+      <div class="footer-info">
+        <small>🔄 atualização em tempo real · digite em qualquer campo</small>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      "use strict";
+
+      // ---- DOM refs ----
+      const decimalInput = document.getElementById('decimal-input');
+      const binInput = document.getElementById('bin-input');
+      const octInput = document.getElementById('oct-input');
+      const hexInput = document.getElementById('hex-input');
+
+      const customInput = document.getElementById('custom-input');
+      const fromBaseSelect = document.getElementById('from-base-select');
+      const convertBtn = document.getElementById('convert-custom-btn');
+      const customResult = document.getElementById('custom-result');
+
+      // ---- helpers ----
+      function isValidNumber(str, base) {
+        if (str.trim() === '') return false;
+        const trimmed = str.trim();
+        // Remove prefixos comuns (0x, 0b, 0o) se existirem, para facilitar
+        let clean = trimmed;
+        if (/^0x/i.test(clean)) clean = clean.slice(2);
+        else if (/^0b/i.test(clean)) clean = clean.slice(2);
+        else if (/^0o/i.test(clean)) clean = clean.slice(2);
+        // Validação por base
+        const digits = '0123456789abcdefghijklmnopqrstuvwxyz'.slice(0, base);
+        const regex = new RegExp('^[' + digits + ']+$', 'i');
+        return regex.test(clean);
+      }
+
+      function parseBase(str, base) {
+        let s = str.trim();
+        if (/^0x/i.test(s)) s = s.slice(2);
+        else if (/^0b/i.test(s)) s = s.slice(2);
+        else if (/^0o/i.test(s)) s = s.slice(2);
+        return parseInt(s, base);
+      }
+
+      function updateAllFromDecimal(dec) {
+        if (!Number.isInteger(dec) || dec < 0) {
+          // Se for negativo ou não inteiro, mantemos vazio ou mostramos erro?
+          // Para este conversor, permitimos apenas inteiros não negativos.
+          if (dec < 0) {
+            // pode acontecer se digitar "-5" – tratamos como inválido
+            return false;
+          }
+          return false;
+        }
+        // Binário (sem prefixo)
+        binInput.value = dec.toString(2);
+        // Octal
+        octInput.value = dec.toString(8);
+        // Hexadecimal (maiúsculo)
+        hexInput.value = dec.toString(16).toUpperCase();
+        return true;
+      }
+
+      function updateAllFromBase(value, base) {
+        if (!isValidNumber(value, base)) return false;
+        const dec = parseBase(value, base);
+        if (isNaN(dec) || dec < 0) return false;
+        decimalInput.value = dec;
+        updateAllFromDecimal(dec);
+        return true;
+      }
+
+      // ---- Atualizar a partir de qualquer campo ----
+      function handleDecimalInput() {
+        const val = decimalInput.value.trim();
+        if (val === '') {
+          // limpa os outros?
+          binInput.value = '';
+          octInput.value = '';
+          hexInput.value = '';
+          customResult.textContent = '⏳ aguardando valor...';
+          return;
+        }
+        const dec = Number(val);
+        if (!Number.isInteger(dec) || dec < 0) {
+          // não atualiza, mas mostra aviso sutil
+          customResult.textContent = '⚠️ insira um inteiro não negativo';
+          return;
+        }
+        const ok = updateAllFromDecimal(dec);
+        if (ok) {
+          // Atualiza também o custom com base 10
+          customResult.textContent = `→ ${dec} (decimal) · ${dec.toString(2)} (bin) · ${dec.toString(8)} (oct) · ${dec.toString(16).toUpperCase()} (hex)`;
+        }
+      }
+
+      function handleBinInput() {
+        const val = binInput.value.trim();
+        if (val === '') {
+          decimalInput.value = '';
+          octInput.value = '';
+          hexInput.value = '';
+          customResult.textContent = '⏳ aguardando valor...';
+          return;
+        }
+        const ok = updateAllFromBase(val, 2);
+        if (!ok) {
+          customResult.textContent = '⚠️ binário inválido (apenas 0 e 1)';
+        } else {
+          const dec = parseInt(decimalInput.value, 10);
+          customResult.textContent = `→ ${dec} (decimal) · ${dec.toString(2)} (bin) · ${dec.toString(8)} (oct) · ${dec.toString(16).toUpperCase()} (hex)`;
+        }
+      }
+
+      function handleOctInput() {
+        const val = octInput.value.trim();
+        if (val === '') {
+          decimalInput.value = '';
+          binInput.value = '';
+          hexInput.value = '';
+          customResult.textContent = '⏳ aguardando valor...';
+          return;
+        }
+        const ok = updateAllFromBase(val, 8);
+        if (!ok) {
+          customResult.textContent = '⚠️ octal inválido (0-7)';
+        } else {
+          const dec = parseInt(decimalInput.value, 10);
+          customResult.textContent = `→ ${dec} (decimal) · ${dec.toString(2)} (bin) · ${dec.toString(8)} (oct) · ${dec.toString(16).toUpperCase()} (hex)`;
+        }
+      }
+
+      function handleHexInput() {
+        const val = hexInput.value.trim();
+        if (val === '') {
+          decimalInput.value = '';
+          binInput.value = '';
+          octInput.value = '';
+          customResult.textContent = '⏳ aguardando valor...';
+          return;
+        }
+        const ok = updateAllFromBase(val, 16);
+        if (!ok) {
+          customResult.textContent = '⚠️ hexadecimal inválido (0-9, A-F)';
+        } else {
+          const dec = parseInt(decimalInput.value, 10);
+          customResult.textContent = `→ ${dec} (decimal) · ${dec.toString(2)} (bin) · ${dec.toString(8)} (oct) · ${dec.toString(16).toUpperCase()} (hex)`;
+        }
+      }
+
+      // ---- Custom converter (base selecionada) ----
+      function handleCustomConvert() {
+        const raw = customInput.value.trim();
+        if (raw === '') {
+          customResult.textContent = '⏳ insira um valor';
+          return;
+        }
+        const base = parseInt(fromBaseSelect.value, 10);
+        if (!isValidNumber(raw, base)) {
+          customResult.textContent = `⚠️ valor inválido para base ${base}`;
+          return;
+        }
+        const dec = parseBase(raw, base);
+        if (isNaN(dec) || dec < 0) {
+          customResult.textContent = '⚠️ inteiro não negativo esperado';
+          return;
+        }
+        // Atualiza todos os campos
+        decimalInput.value = dec;
+        updateAllFromDecimal(dec);
+        // Atualiza mensagem
+        customResult.textContent = `→ ${dec} (decimal) · ${dec.toString(2)} (bin) · ${dec.toString(8)} (oct) · ${dec.toString(16).toUpperCase()} (hex)`;
+      }
+
+      // ---- Event listeners ----
+      decimalInput.addEventListener('input', handleDecimalInput);
+      binInput.addEventListener('input', handleBinInput);
+      octInput.addEventListener('input', handleOctInput);
+      hexInput.addEventListener('input', handleHexInput);
+
+      convertBtn.addEventListener('click', handleCustomConvert);
+      customInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') handleCustomConvert();
+      });
+      fromBaseSelect.addEventListener('change', () => {
+        // apenas muda o placeholder do custom se quiser
+        const base = fromBaseSelect.value;
+        const labels = { '2':'ex: 1010', '8':'ex: 52', '10':'ex: 42', '16':'ex: 2A' };
+        customInput.placeholder = labels[base] || 'digite valor';
+      });
+
+      // ---- Inicialização com 42 ----
+      // já temos 42 no decimal, 101010, 52, 2A
+      // Força sincronização
+      setTimeout(() => {
+        const dec = parseInt(decimalInput.value, 10);
+        if (!isNaN(dec) && dec >= 0) {
+          updateAllFromDecimal(dec);
+          customResult.textContent = `→ ${dec} (decimal) · ${dec.toString(2)} (bin) · ${dec.toString(8)} (oct) · ${dec.toString(16).toUpperCase()} (hex)`;
+        }
+        // set placeholder custom
+        fromBaseSelect.dispatchEvent(new Event('change'));
+      }, 20);
+
+    })();
+  </script>
+</body>
+</html>
