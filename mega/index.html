@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mega Bolão Manager — v5</title>
+<style>
+:root{
+  --bg:#f5f7fa;--surface:#fff;--surface2:#f0f3f6;--text:#17212b;--muted:#687585;
+  --primary:#087f5b;--primary-dark:#066548;--secondary:#2459a6;--danger:#b42318;
+  --border:#dce2e8;--shadow:0 2px 12px rgba(20,30,40,.07)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 "Segoe UI",Arial,sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.app-header{background:linear-gradient(135deg,#07563f,#0b8b65);color:#fff;padding:22px 5vw}
+.header-inner{max-width:1450px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}
+h1{margin:0 0 4px;font-size:27px}.subtitle{margin:0;opacity:.9}
+.header-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:1px solid var(--border);border-radius:8px;padding:9px 13px;background:#fff;color:var(--text);font-weight:700}
+.btn:hover{filter:brightness(.97)}.btn-primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.btn-secondary{background:var(--secondary);border-color:var(--secondary);color:#fff}
+.btn-danger{background:var(--danger);border-color:var(--danger);color:#fff}
+.btn-header{background:#fff;color:#07563f;border:0}
+.main-nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.nav-inner{max-width:1450px;margin:auto;padding:8px 5vw;display:flex;gap:6px;overflow-x:auto}
+.nav-btn{white-space:nowrap;border:1px solid transparent;background:#eef2f5;color:var(--text);border-radius:8px;padding:9px 13px;font-weight:700}
+.nav-btn:hover{background:#e1e7ec}.nav-btn.active{background:var(--primary);color:#fff}
+main{max-width:1450px;margin:auto;padding:22px 5vw 60px}
+.page{display:none}.page.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:17px;box-shadow:var(--shadow);margin-bottom:16px}
+.card h2{margin:0 0 12px;font-size:19px}.card h3{margin:0 0 10px}
+.metric{font-size:26px;font-weight:800}.muted{color:var(--muted);font-size:13px}
+label{display:block;font-weight:700;font-size:13px;margin:9px 0 5px}
+input,select,textarea{width:100%;border:1px solid #cbd3da;border-radius:7px;padding:9px;background:#fff;color:var(--text)}
+textarea{min-height:120px;resize:vertical}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.notice{padding:11px 13px;border:1px solid #ead19b;background:#fff7e3;border-radius:8px;margin:10px 0}
+.notice.ok{border-color:#b7e2cd;background:#eaf8f1}.notice.danger{border-color:#f0b8b3;background:#fff0ef}
+.badge{display:inline-block;border-radius:999px;padding:3px 8px;background:#eef2f5;margin:2px;font-size:12px}
+.badge.ok{background:#dff5e9;color:#08633f}.badge.warn{background:#fff0d2;color:#8a4b00}
+.ball-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
+.ball{height:40px;width:40px;border-radius:50%;border:1px solid #cbd3da;background:#fff;font-weight:700}
+.ball:hover{background:#edf5f1}.ball.selected{background:var(--primary);color:#fff;border-color:var(--primary)}
+.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse}th,td{padding:8px;border-bottom:1px solid var(--border);text-align:left;white-space:nowrap}th{background:#f5f7f9}
+.games-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.game{border:1px solid var(--border);border-radius:8px;padding:10px;background:#fbfcfd}
+.game-number{font-weight:800;color:var(--primary);margin-right:8px}
+.code{font-family:Consolas,monospace;background:#f1f3f5;padding:2px 5px;border-radius:4px}
+canvas{width:100%;height:240px;border:1px solid var(--border);border-radius:8px}
+.empty{padding:20px;text-align:center;color:var(--muted);border:1px dashed var(--border);border-radius:8px}
+.kpi{padding:15px;border:1px solid var(--border);border-radius:10px;background:#fafcfd}
+.hidden{display:none!important}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.grid,.grid-2,.grid-3{grid-template-columns:1fr}.ball-grid{grid-template-columns:repeat(6,1fr)}.header-inner{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-inner">
+    <div>
+      <h1>Mega Bolão Manager</h1>
+      <p class="subtitle">v5 — projetos, persistência local, fechamento e otimização de jogos</p>
+    </div>
+    <div class="header-actions">
+      <button id="newProjectTop" class="btn btn-header">＋ Novo projeto</button>
+      <button id="saveTop" class="btn btn-header">Salvar</button>
+    </div>
+  </div>
+</header>
+
+<nav class="main-nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" data-page="dashboard">Dashboard</button>
+    <button class="nav-btn" data-page="project">Projeto</button>
+    <button class="nav-btn" data-page="games">Jogos</button>
+    <button class="nav-btn" data-page="optimizer">Otimizador</button>
+    <button class="nav-btn" data-page="history">Histórico</button>
+    <button class="nav-btn" data-page="participants">Participantes</button>
+    <button class="nav-btn" data-page="check">Conferência</button>
+    <button class="nav-btn" data-page="storage">Persistência</button>
+  </div>
+</nav>
+
+<main>
+<section id="dashboard" class="page active">
+  <div class="grid">
+    <div class="card"><div class="muted">Projeto</div><div class="metric" id="dashProject">—</div></div>
+    <div class="card"><div class="muted">Concurso</div><div class="metric" id="dashContest">—</div></div>
+    <div class="card"><div class="muted">Dezenas-base</div><div class="metric" id="dashBase">0</div></div>
+    <div class="card"><div class="muted">Jogos</div><div class="metric" id="dashGames">0</div></div>
+  </div>
+  <div class="grid-2">
+    <div class="card"><h2>Resumo</h2><div id="dashboardSummary"></div></div>
+    <div class="card"><h2>Projeto atual</h2><div id="dashboardProject"></div></div>
+  </div>
+  <div class="card">
+    <h2>Como começar</h2>
+    <ol>
+      <li>Clique em <b>＋ Novo projeto</b>.</li>
+      <li>Informe identificador, concurso e data-base e salve.</li>
+      <li>Selecione de 6 a 20 dezenas-base.</li>
+      <li>Gere um fechamento completo, uma amostra ou use o otimizador.</li>
+      <li>Salve o projeto. Os dados ficam no navegador.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="project" class="page">
+  <div class="card">
+    <h2>Novo projeto / Identidade</h2>
+    <div class="notice ok"><b>Chave de persistência:</b> Identificador + Concurso + Data-base.</div>
+    <div class="grid-2">
+      <div><label>Identificador único do projeto</label><input id="projectId" placeholder="Ex.: FAMILIA-GODOY-2026"></div>
+      <div><label>Concurso</label><input id="contest" type="number" min="1" placeholder="Ex.: 2920"></div>
+      <div><label>Data-base</label><input id="baseDate" type="date"></div>
+      <div><label>Descrição</label><input id="description" placeholder="Ex.: Mega da Virada — família"></div>
+    </div>
+    <div class="actions">
+      <button id="saveProject" class="btn btn-primary">Salvar projeto</button>
+      <button id="clearProject" class="btn">Limpar formulário</button>
+      <button id="newProject" class="btn btn-secondary">＋ Criar novo projeto</button>
+    </div>
+    <div id="projectMessage"></div>
+  </div>
+
+  <div class="card">
+    <h2>Dezenas-base</h2>
+    <p class="muted">Selecione entre 6 e 20 dezenas. O fechamento completo considera todas as combinações de 6 dezenas dentro desta seleção.</p>
+    <div id="baseBalls" class="ball-grid"></div>
+    <div class="actions">
+      <button id="randomBase" class="btn">Selecionar 15 aleatórias</button>
+      <button id="clearBase" class="btn">Limpar dezenas</button>
+      <span id="baseCount" class="badge"></span>
+    </div>
+  </div>
+</section>
+
+<section id="games" class="page">
+  <div class="card">
+    <h2>Geração de jogos</h2>
+    <div class="grid">
+      <div><label>Estratégia</label><select id="gameMode"><option value="full">Fechamento completo</option><option value="random">Amostra aleatória</option><option value="balanced">Amostra balanceada</option></select></div>
+      <div><label>Quantidade de jogos</label><input id="gameQty" type="number" min="1" value="20"></div>
+      <div><label>Orçamento (R$)</label><input id="gameBudget" type="number" min="6" step="6" value="120"></div>
+      <div><label>Preço da aposta simples (R$)</label><input id="unitPrice" type="number" min="0" step=".01" value="6"></div>
+    </div>
+    <div class="actions">
+      <button id="generateGames" class="btn btn-primary">Gerar jogos</button>
+      <button id="clearGames" class="btn">Limpar jogos</button>
+      <button id="exportCSV" class="btn">Exportar CSV</button>
+    </div>
+    <div id="gameMessage"></div>
+  </div>
+  <div class="card"><h2>Jogos atuais</h2><div id="gamesList" class="games-grid"></div></div>
+</section>
+
+<section id="optimizer" class="page">
+  <div class="card">
+    <h2>Otimizador de portfólio</h2>
+    <p>Seleciona jogos procurando maximizar a cobertura de pares, trincas e quadras e, simultaneamente, reduzir a sobreposição entre jogos.</p>
+    <div class="grid">
+      <div><label>Quantidade de jogos</label><input id="optQty" type="number" min="1" value="50"></div>
+      <div><label>Orçamento máximo (R$)</label><input id="optBudget" type="number" min="6" step="6" value="300"></div>
+      <div><label>Candidatos avaliados</label><input id="optCandidates" type="number" min="100" max="10000" value="1500"></div>
+      <div><label>Perfil</label><select id="optProfile"><option value="balanced">Balanceado</option><option value="coverage">Priorizar cobertura</option><option value="lowoverlap">Priorizar baixa sobreposição</option><option value="history">Usar histórico como peso descritivo</option></select></div>
+    </div>
+    <div class="actions"><button id="optimize" class="btn btn-primary">Otimizar portfólio</button></div>
+    <div id="optimizerMessage"></div>
+  </div>
+  <div class="card"><h2>Indicadores da solução</h2><div id="optimizerStats"></div></div>
+</section>
+
+<section id="history" class="page">
+  <div class="card">
+    <h2>Histórico de concursos</h2>
+    <p class="muted">Formato: Concurso;Data;Bola1;Bola2;Bola3;Bola4;Bola5;Bola6</p>
+    <textarea id="historyInput" placeholder="Ex.: 2920;31/12/2026;01;12;23;34;45;56"></textarea>
+    <div class="actions">
+      <button id="importHistory" class="btn btn-primary">Importar histórico</button>
+      <button id="demoHistory" class="btn">Carregar histórico demonstrativo</button>
+      <button id="clearHistory" class="btn">Limpar histórico</button>
+    </div>
+    <div id="historyStats"></div>
+    <canvas id="historyChart" width="900" height="240"></canvas>
+  </div>
+</section>
+
+<section id="participants" class="page">
+  <div class="card">
+    <h2>Participantes e cotas</h2>
+    <div class="grid">
+      <div><label>Nome</label><input id="participantName"></div>
+      <div><label>Cotas</label><input id="participantQuota" type="number" min="1" value="1"></div>
+      <div><label>Valor pago (R$)</label><input id="participantPaid" type="number" min="0" step=".01"></div>
+      <div><label>Observação</label><input id="participantNote"></div>
+    </div>
+    <div class="actions"><button id="addParticipant" class="btn btn-primary">Adicionar participante</button></div>
+    <div id="participantsTable"></div>
+  </div>
+</section>
+
+<section id="check" class="page">
+  <div class="card">
+    <h2>Conferência de resultado</h2>
+    <p class="muted">Selecione exatamente seis dezenas para comparar com os jogos atuais.</p>
+    <div id="resultBalls" class="ball-grid"></div>
+    <div class="actions"><button id="checkResult" class="btn btn-primary">Conferir jogos</button><button id="clearResult" class="btn">Limpar</button></div>
+    <div id="checkOutput"></div>
+  </div>
+</section>
+
+<section id="storage" class="page">
+  <div class="card">
+    <h2>Persistência local</h2>
+    <p>Esta versão usa <b>JSON + localStorage</b>. Cada projeto é armazenado pela chave <span class="code">Identificador|Concurso|Data-base</span>.</p>
+    <div class="notice">O armazenamento é local ao navegador. Recomenda-se exportar o projeto JSON como backup.</div>
+    <div class="actions">
+      <button id="exportJSON" class="btn btn-primary">Exportar projeto JSON</button>
+      <button id="importJSON" class="btn">Importar projeto JSON</button>
+      <button id="deleteCurrent" class="btn btn-danger">Excluir projeto atual</button>
+      <button id="deleteAll" class="btn btn-danger">Apagar todos os projetos</button>
+    </div>
+  </div>
+  <div class="card"><h2>Projetos salvos</h2><div id="savedProjects"></div></div>
+</section>
+</main>
+
+<script>
+(function(){
+"use strict";
+
+const STORAGE_KEY = "mega-bolao-manager-v5";
+const $ = id => document.getElementById(id);
+const state = {
+  project: emptyProject(),
+  result: []
+};
+
+function emptyProject(){
+  return {
+    id:"",
+    contest:"",
+    baseDate:new Date().toISOString().slice(0,10),
+    description:"",
+    base:[],
+    games:[],
+    participants:[],
+    history:[]
+  };
+}
+
+function loadDB(){
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); }
+  catch(e){ return {}; }
+}
+
+function persist(){
+  if(!validIdentity(false)) return false;
+  const db=loadDB();
+  db[projectKey()] = structuredClone(state.project);
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(db));
+  renderSavedProjects();
+  return true;
+}
+
+function projectKey(){
+  return state.project.id.trim()+"|"+String(state.project.contest).trim()+"|"+state.project.baseDate;
+}
+
+function validIdentity(show=true){
+  const ok=!!state.project.id.trim() && !!String(state.project.contest).trim() && !!state.project.baseDate;
+  if(!ok && show) message("projectMessage","Informe identificador, concurso e data-base antes de salvar.","danger");
+  return ok;
+}
+
+function money(v){
+  return new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(Number(v)||0);
+}
+
+function combinations(arr,k){
+  const out=[];
+  function walk(start,current){
+    if(current.length===k){out.push(current.slice());return;}
+    for(let i=start;i<=arr.length-(k-current.length);i++){
+      current.push(arr[i]); walk(i+1,current); current.pop();
+    }
+  }
+  walk(0,[]);
+  return out;
+}
+
+function choose(n,k){
+  if(k<0||k>n)return 0;
+  if(k===0||k===n)return 1;
+  let r=1;
+  for(let i=1;i<=k;i++)r=r*(n-k+i)/i;
+  return Math.round(r);
+}
+
+function sample(arr,n){
+  if(n>=arr.length)return arr.slice();
+  const selected=[],seen=new Set();
+  while(selected.length<n){
+    const g=arr[Math.floor(Math.random()*arr.length)];
+    const k=g.join("-");
+    if(!seen.has(k)){seen.add(k);selected.push(g);}
+  }
+  return selected;
+}
+
+function escapeHtml(v){
+  return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function message(id,text,type){
+  $(id).innerHTML='<div class="notice '+(type||"")+'">'+text+'</div>';
+}
+
+function openPage(page){
+  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+  document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===page));
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+document.querySelector(".nav-inner").addEventListener("click",e=>{
+  const b=e.target.closest(".nav-btn");
+  if(b) openPage(b.dataset.page);
+});
+
+function newProject(){
+  state.project=emptyProject();
+  state.result=[];
+  fillForm();
+  renderAll();
+  openPage("project");
+  setTimeout(()=>$("projectId").focus(),80);
+  message("projectMessage","Novo projeto iniciado. Preencha identificador, concurso e data-base e salve.","ok");
+}
+
+function fillForm(){
+  $("projectId").value=state.project.id;
+  $("contest").value=state.project.contest;
+  $("baseDate").value=state.project.baseDate;
+  $("description").value=state.project.description;
+}
+
+function readForm(){
+  state.project.id=$("projectId").value.trim();
+  state.project.contest=$("contest").value.trim();
+  state.project.baseDate=$("baseDate").value;
+  state.project.description=$("description").value.trim();
+}
+
+function saveProject(){
+  readForm();
+  if(!validIdentity()) return;
+  persist();
+  message("projectMessage","Projeto salvo com sucesso no armazenamento local.","ok");
+  renderAll();
+}
+
+function renderBaseBalls(){
+  $("baseBalls").innerHTML=Array.from({length:60},(_,i)=>{
+    const n=i+1;
+    return '<button class="ball '+(state.project.base.includes(n)?"selected":"")+'" data-base="'+n+'">'+String(n).padStart(2,"0")+"</button>";
+  }).join("");
+  $("baseCount").textContent=state.project.base.length+" de 20 selecionadas";
+}
+
+$("baseBalls").addEventListener("click",e=>{
+  const b=e.target.closest("[data-base]");
+  if(!b)return;
+  const n=Number(b.dataset.base);
+  const a=state.project.base;
+  if(a.includes(n)) a.splice(a.indexOf(n),1);
+  else if(a.length<20) a.push(n);
+  else return;
+  a.sort((x,y)=>x-y);
+  renderBaseBalls(); updateDashboard();
+});
+
+function renderResultBalls(){
+  $("resultBalls").innerHTML=Array.from({length:60},(_,i)=>{
+    const n=i+1;
+    return '<button class="ball '+(state.result.includes(n)?"selected":"")+'" data-result="'+n+'">'+String(n).padStart(2,"0")+"</button>";
+  }).join("");
+}
+
+$("resultBalls").addEventListener("click",e=>{
+  const b=e.target.closest("[data-result]");
+  if(!b)return;
+  const n=Number(b.dataset.result),a=state.result;
+  if(a.includes(n))a.splice(a.indexOf(n),1);
+  else if(a.length<6)a.push(n);
+  a.sort((x,y)=>x-y);renderResultBalls();
+});
+
+$("randomBase").onclick=()=>{
+  state.project.base=[];
+  while(state.project.base.length<15){
+    const n=1+Math.floor(Math.random()*60);
+    if(!state.project.base.includes(n))state.project.base.push(n);
+  }
+  state.project.base.sort((a,b)=>a-b);renderBaseBalls();persist();updateDashboard();
+};
+$("clearBase").onclick=()=>{state.project.base=[];renderBaseBalls();persist();updateDashboard();};
+
+function balancedScore(g){
+  const even=g.filter(n=>n%2===0).length;
+  const sum=g.reduce((a,b)=>a+b,0);
+  const decades=new Set(g.map(n=>Math.floor((n-1)/10))).size;
+  return Math.abs(even-3)*2+Math.abs(sum-183)/60+(6-decades);
+}
+
+function generateGames(){
+  if(state.project.base.length<6){message("gameMessage","Selecione pelo menos 6 dezenas-base.","danger");return;}
+  const all=combinations(state.project.base,6);
+  const unit=Number($("unitPrice").value)||6;
+  const budget=Number($("gameBudget").value)||0;
+  const maxByBudget=Math.floor(budget/unit);
+  const requested=Math.max(1,Number($("gameQty").value)||1);
+  const qty=Math.min(requested,maxByBudget||requested,all.length);
+  let games;
+  const mode=$("gameMode").value;
+  if(mode==="full") games=all.slice(0,Math.min(all.length,maxByBudget||all.length));
+  else if(mode==="random") games=sample(all,qty);
+  else games=all.slice().sort((a,b)=>balancedScore(a)-balancedScore(b)).slice(0,qty);
+  state.project.games=games;
+  persist();renderGames();updateDashboard();
+  message("gameMessage",games.length+" jogos gerados. Custo estimado: "+money(games.length*unit)+".","ok");
+}
+
+function renderGames(){
+  if(!state.project.games.length){
+    $("gamesList").innerHTML='<div class="empty">Nenhum jogo gerado.</div>';return;
+  }
+  $("gamesList").innerHTML=state.project.games.map((g,i)=>
+    '<div class="game"><span class="game-number">'+String(i+1).padStart(3,"0")+"</span>"+
+    g.map(n=>String(n).padStart(2,"0")).join(" · ")+"</div>"
+  ).join("");
+}
+
+function subsetKeys(game,k){return combinations(game,k).map(x=>x.join("-"));}
+
+function historyFrequency(){
+  const f={};state.project.history.forEach(r=>r.nums.forEach(n=>f[n]=(f[n]||0)+1));return f;
+}
+
+function optimize(){
+  if(state.project.base.length<6){message("optimizerMessage","Selecione pelo menos 6 dezenas-base.","danger");return;}
+  const all=combinations(state.project.base,6);
+  const unit=Number($("unitPrice").value)||6;
+  const budget=Number($("optBudget").value)||0;
+  const qty=Math.min(Number($("optQty").value)||1,Math.floor(budget/unit)||1,all.length);
+  const candidates=sample(all,Math.min(Number($("optCandidates").value)||1500,all.length));
+  const profile=$("optProfile").value;
+  const freq=historyFrequency();
+  const covered={2:new Set(),3:new Set(),4:new Set()};
+  const selected=[];
+  let pool=candidates.slice();
+
+  while(selected.length<qty && pool.length){
+    let best=null,bestScore=-Infinity;
+    for(const g of pool){
+      let gain=0;
+      [2,3,4].forEach(k=>subsetKeys(g,k).forEach(x=>{if(!covered[k].has(x))gain+=k*k;}));
+      let overlap=0;
+      if(selected.length){
+        overlap=selected.reduce((sum,s)=>sum+s.filter(n=>g.includes(n)).length,0)/selected.length;
+      }
+      const parity=Math.abs(g.filter(n=>n%2===0).length-3);
+      const hist=g.reduce((s,n)=>s+(freq[n]||0),0);
+      let score=gain*10-overlap*7-parity*2;
+      if(profile==="coverage")score+=gain*5;
+      if(profile==="lowoverlap")score-=overlap*8;
+      if(profile==="history")score+=hist*.12;
+      if(score>bestScore){bestScore=score;best=g;}
+    }
+    if(!best)break;
+    selected.push(best);
+    [2,3,4].forEach(k=>subsetKeys(best,k).forEach(x=>covered[k].add(x)));
+    pool=pool.filter(g=>g.join("-")!==best.join("-"));
+  }
+
+  state.project.games=selected;persist();renderGames();updateDashboard();
+  const n=state.project.base.length;
+  const pct=k=>choose(n,k)?(covered[k].size/choose(n,k)*100):0;
+  $("optimizerStats").innerHTML=
+    '<div class="grid-3">'+
+    '<div class="kpi"><b>'+selected.length+'</b><div class="muted">Jogos selecionados</div></div>'+
+    '<div class="kpi"><b>'+pct(2).toFixed(2)+'%</b><div class="muted">Cobertura de pares</div></div>'+
+    '<div class="kpi"><b>'+pct(3).toFixed(2)+'%</b><div class="muted">Cobertura de trincas</div></div>'+
+    '</div>'+
+    '<div class="notice ok">A cobertura é calculada dentro do conjunto-base. Isso é uma métrica de distribuição do portfólio, não uma garantia de prêmio.</div>';
+  message("optimizerMessage","Otimização concluída.","ok");
+}
+
+function importHistory(){
+  const lines=$("historyInput").value.trim().split(/\r?\n/).filter(Boolean);
+  const rows=[];
+  for(const line of lines){
+    const p=line.split(/[;,]/).map(x=>x.trim());
+    const nums=p.map(x=>Number(x)).filter(n=>Number.isInteger(n)&&n>=1&&n<=60);
+    if(nums.length>=6)rows.push({contest:p[0],date:p[1]||"",nums:nums.slice(-6).sort((a,b)=>a-b)});
+  }
+  state.project.history=rows;persist();renderHistory();
+}
+
+function demoHistory(){
+  const rows=[];
+  for(let c=1;c<=100;c++){
+    const set=new Set();
+    while(set.size<6)set.add(1+Math.floor(Math.random()*60));
+    rows.push({contest:String(c),date:"DEMO",nums:[...set].sort((a,b)=>a-b)});
+  }
+  state.project.history=rows;persist();renderHistory();
+}
+
+function renderHistory(){
+  const rows=state.project.history;
+  if(!rows.length){$("historyStats").innerHTML='<div class="empty">Nenhum histórico carregado.</div>';drawChart([]);return;}
+  const freq=historyFrequency();
+  const last={};
+  rows.forEach((r,i)=>r.nums.forEach(n=>last[n]=i));
+  const data=Array.from({length:60},(_,i)=>({
+    n:i+1,f:freq[i+1]||0,delay:last[i+1]===undefined?rows.length:rows.length-1-last[i+1]
+  }));
+  const hot=data.slice().sort((a,b)=>b.f-a.f).slice(0,10);
+  const delayed=data.slice().sort((a,b)=>b.delay-a.delay).slice(0,10);
+  const sums=rows.map(r=>r.nums.reduce((a,b)=>a+b,0));
+  const reps=[];
+  for(let i=1;i<rows.length;i++)reps.push(rows[i].nums.filter(n=>rows[i-1].nums.includes(n)).length);
+  const avgSum=sums.reduce((a,b)=>a+b,0)/sums.length;
+  const avgRep=reps.length?reps.reduce((a,b)=>a+b,0)/reps.length:0;
+  $("historyStats").innerHTML=
+    '<div class="grid">'+
+    '<div class="kpi"><b>'+rows.length+'</b><div class="muted">Concursos</div></div>'+
+    '<div class="kpi"><b>'+avgSum.toFixed(1)+'</b><div class="muted">Soma média</div></div>'+
+    '<div class="kpi"><b>'+avgRep.toFixed(2)+'</b><div class="muted">Repetição média</div></div>'+
+    '<div class="kpi"><b>'+hot[0].n+'</b><div class="muted">Mais frequente</div></div></div>'+
+    '<div class="grid-2"><div><h3>Mais frequentes</h3>'+hot.map(x=>'<span class="badge ok">'+String(x.n).padStart(2,"0")+": "+x.f+"</span>").join("")+
+    '</div><div><h3>Maior atraso atual</h3>'+delayed.map(x=>'<span class="badge warn">'+String(x.n).padStart(2,"0")+": "+x.delay+" concursos</span>").join("")+'</div></div>'+
+    '<div class="notice">Frequência e atraso são estatísticas históricas. Não tornam uma dezena mais provável no próximo sorteio.</div>';
+  drawChart(sums);
+}
+
+function drawChart(values){
+  const c=$("historyChart"),ctx=c.getContext("2d");
+  ctx.clearRect(0,0,c.width,c.height);
+  if(!values.length)return;
+  const pad=30,w=c.width-pad*2,h=c.height-pad*2,min=Math.min(...values),max=Math.max(...values);
+  ctx.beginPath();
+  values.forEach((v,i)=>{
+    const x=pad+i*(w/Math.max(1,values.length-1));
+    const y=pad+h-(v-min)/(max-min||1)*h;
+    i?ctx.lineTo(x,y):ctx.moveTo(x,y);
+  });
+  ctx.stroke();
+  ctx.fillText("Soma dos concursos — mínimo "+min+" / máximo "+max,pad,18);
+}
+
+function addParticipant(){
+  const name=$("participantName").value.trim();
+  if(!name)return;
+  state.project.participants.push({
+    name,
+    quota:Number($("participantQuota").value)||1,
+    paid:Number($("participantPaid").value)||0,
+    note:$("participantNote").value.trim()
+  });
+  $("participantName").value="";$("participantPaid").value="";$("participantNote").value="";
+  persist();renderParticipants();
+}
+
+function renderParticipants(){
+  const p=state.project.participants;
+  if(!p.length){$("participantsTable").innerHTML='<div class="empty">Nenhum participante.</div>';return;}
+  $("participantsTable").innerHTML='<div class="table-wrap"><table><thead><tr><th>Nome</th><th>Cotas</th><th>Pago</th><th>Observação</th><th></th></tr></thead><tbody>'+
+    p.map((x,i)=>'<tr><td>'+escapeHtml(x.name)+'</td><td>'+x.quota+'</td><td>'+money(x.paid)+'</td><td>'+escapeHtml(x.note)+'</td><td><button class="btn btn-danger" data-remove-participant="'+i+'">Remover</button></td></tr>').join("")+
+    '</tbody></table></div>';
+}
+
+$("participantsTable").addEventListener("click",e=>{
+  const b=e.target.closest("[data-remove-participant]");if(!b)return;
+  state.project.participants.splice(Number(b.dataset.removeParticipant),1);persist();renderParticipants();
+});
+
+function checkResult(){
+  if(state.result.length!==6){$("checkOutput").innerHTML='<div class="notice danger">Selecione exatamente seis dezenas.</div>';return;}
+  const r=new Set(state.result);
+  const rows=state.project.games.map((g,i)=>({i:i+1,g,hit:g.filter(n=>r.has(n)).length})).sort((a,b)=>b.hit-a.hit);
+  $("checkOutput").innerHTML='<div class="table-wrap"><table><thead><tr><th>Jogo</th><th>Dezenas</th><th>Acertos</th></tr></thead><tbody>'+
+    rows.map(x=>'<tr><td>'+x.i+'</td><td>'+x.g.map(n=>String(n).padStart(2,"0")).join(" · ")+'</td><td><b>'+x.hit+'</b></td></tr>').join("")+
+    '</tbody></table></div>';
+}
+
+function renderSavedProjects(){
+  const db=loadDB(),items=Object.entries(db);
+  if(!items.length){$("savedProjects").innerHTML='<div class="empty">Nenhum projeto salvo.</div>';return;}
+  $("savedProjects").innerHTML='<div class="table-wrap"><table><thead><tr><th>Identificador</th><th>Concurso</th><th>Data-base</th><th>Jogos</th><th></th></tr></thead><tbody>'+
+    items.map(([k,p])=>'<tr><td>'+escapeHtml(p.id)+'</td><td>'+escapeHtml(p.contest)+'</td><td>'+escapeHtml(p.baseDate)+'</td><td>'+p.games.length+'</td><td><button class="btn" data-open="'+encodeURIComponent(k)+'">Abrir</button></td></tr>').join("")+
+    '</tbody></table></div>';
+}
+
+$("savedProjects").addEventListener("click",e=>{
+  const b=e.target.closest("[data-open]");if(!b)return;
+  const k=decodeURIComponent(b.dataset.open),p=loadDB()[k];
+  if(!p)return;
+  state.project=p;state.result=[];fillForm();renderAll();openPage("project");
+});
+
+function deleteCurrent(){
+  readForm();
+  if(!validIdentity())return;
+  const db=loadDB(),k=projectKey();
+  if(db[k]){delete db[k];localStorage.setItem(STORAGE_KEY,JSON.stringify(db));newProject();message("projectMessage","Projeto excluído.","ok");}
+}
+
+function deleteAll(){
+  if(confirm("Apagar todos os projetos salvos neste navegador?")){
+    localStorage.removeItem(STORAGE_KEY);state.project=emptyProject();state.result=[];renderAll();openPage("storage");
+  }
+}
+
+function download(text,name,type){
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([text],{type}));
+  a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+
+function exportCSV(){
+  const lines=["Jogo;Dezena1;Dezena2;Dezena3;Dezena4;Dezena5;Dezena6"];
+  state.project.games.forEach((g,i)=>lines.push([i+1,...g].join(";")));
+  download(lines.join("\n"),"MegaBolao_"+(state.project.contest||"projeto")+".csv","text/csv;charset=utf-8");
+}
+
+function exportJSON(){
+  readForm();
+  if(!validIdentity())return;
+  download(JSON.stringify(state.project,null,2),"MegaBolao_"+state.project.id+".json","application/json;charset=utf-8");
+}
+
+function importJSON(){
+  const input=document.createElement("input");input.type="file";input.accept=".json";
+  input.onchange=()=>{
+    const file=input.files[0];if(!file)return;
+    const reader=new FileReader();
+    reader.onload=()=>{
+      try{
+        const p=JSON.parse(reader.result);
+        if(!p.id||!p.contest||!p.baseDate)throw new Error("Identidade incompleta");
+        state.project=p;state.result=[];persist();fillForm();renderAll();openPage("project");
+        message("projectMessage","Projeto JSON importado.","ok");
+      }catch(e){alert("Não foi possível importar o JSON.");}
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+function updateDashboard(){
+  const n=state.project.base.length,total=choose(n,6),g=state.project.games.length,unit=Number($("unitPrice").value)||6;
+  $("dashProject").textContent=state.project.id||"—";
+  $("dashContest").textContent=state.project.contest||"—";
+  $("dashBase").textContent=n;
+  $("dashGames").textContent=g;
+  $("dashboardSummary").innerHTML=
+    "Combinações possíveis C("+n+",6): <b>"+total.toLocaleString("pt-BR")+"</b><br>"+
+    "Jogos atuais: <b>"+g+"</b><br>"+
+    "Custo estimado: <b>"+money(g*unit)+"</b><br>"+
+    "Cobertura direta da base: <b>"+(total?(g/total*100).toFixed(2):"0.00")+"%</b>";
+  $("dashboardProject").innerHTML=state.project.id?
+    "<b>"+escapeHtml(state.project.description||"Sem descrição")+"</b><br>"+
+    "Chave: <span class='code'>"+escapeHtml(projectKey())+"</span><br>"+
+    "Histórico: "+state.project.history.length+" concursos<br>"+
+    "Participantes: "+state.project.participants.length:
+    '<span class="muted">Nenhum projeto configurado.</span>';
+}
+
+function renderAll(){
+  fillForm();renderBaseBalls();renderResultBalls();renderGames();renderParticipants();renderHistory();renderSavedProjects();updateDashboard();
+}
+
+$("newProjectTop").onclick=newProject;
+$("newProject").onclick=newProject;
+$("saveTop").onclick=saveProject;
+$("saveProject").onclick=saveProject;
+$("generateGames").onclick=generateGames;
+$("clearGames").onclick=()=>{state.project.games=[];persist();renderGames();updateDashboard();};
+$("exportCSV").onclick=exportCSV;
+$("optimize").onclick=optimize;
+$("importHistory").onclick=importHistory;
+$("demoHistory").onclick=demoHistory;
+$("clearHistory").onclick=()=>{state.project.history=[];persist();renderHistory();};
+$("addParticipant").onclick=addParticipant;
+$("checkResult").onclick=checkResult;
+$("clearResult").onclick=()=>{state.result=[];renderResultBalls();$("checkOutput").innerHTML="";};
+$("exportJSON").onclick=exportJSON;
+$("importJSON").onclick=importJSON;
+$("deleteCurrent").onclick=deleteCurrent;
+$("deleteAll").onclick=deleteAll;
+$("clearProject").onclick=()=>{fillForm();message("projectMessage","Formulário restaurado para o projeto atual.","ok");};
+
+function init(){
+  renderAll();
+  $("baseDate").value=state.project.baseDate;
+}
+init();
+
+})();
+</script>
+</body>
+</html>
